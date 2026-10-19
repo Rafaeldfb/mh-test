@@ -15,6 +15,8 @@ Add each channel's investment variation against the same period in the previous 
 
 ## Pending decisions
 
+Read the [decision brief](decision-brief.md) for fixture facts, options, impacts, and proposed defaults, and [research](research.md) for implementation investigation. These do not approve a Task 02 UI or authorize implementation.
+
 - Choose the display and formula: absolute change (`investment - baseline`), percentage change (`(investment - baseline) / baseline * 100` for nonzero baseline), or both. These are candidates, not an approved policy.
 - Decide how to communicate missing and zero baselines, including TikTok; do not assume missing means zero.
 - Reuse or align with Task 01's total/detail treatment and decide placement/formatting within its panel.
@@ -25,4 +27,4 @@ Add each channel's investment variation against the same period in the previous 
 - Validation: Not run; calculation checks, missing/zero-baseline scenarios, and UI results not yet recorded.
 - Acceptance evidence: None yet.
 
-Use the [task procedure and references](../README.md) for implementation/review guidance and [Architecture](../../docs/architecture.md#supplied-contracts-and-unresolved-handling) for fixture constraints.
+Use the [task procedure and references](../README.md) for implementation/review guidance and [Architecture](../../docs/architecture.md#supplied-contracts-and-adopted-handling) for fixture constraints.
