@@ -8,7 +8,9 @@
 
 ## Not yet defined
 
-There are no rendered charts, dashboard styles, loading/error treatments, or responsive breakpoints. Chart colors, typography hierarchy, mobile layout, and annual-comparison presentation remain undecided. Existing CSS is starter styling, not evidence of a brand design system.
+The user-confirmed [Task 01 direction](../tasks/01-render-dashboard/design.md) places a bottom composer below a results workspace, with loading skeletons and progressive presentation after complete responses succeed. That record distinguishes confirmed direction from open layout and animation details; it is not implemented.
+
+The starter has no rendered charts, dashboard styles, loading/error treatments, or responsive breakpoints implemented. Task 01's [chosen layout](../tasks/01-render-dashboard/design.md#chosen-task-01-layout) defines a single column at narrower widths; exact breakpoint and sizing remain implementation details. Chart colors, typography hierarchy, and annual-comparison presentation remain undecided. Existing CSS is starter styling, not evidence of a brand design system.
 
 The input has no explicit accessible label. Chart accessibility and state announcements are not implemented. Treat these as current limitations, not established conventions.
 

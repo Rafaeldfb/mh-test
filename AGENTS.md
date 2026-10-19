@@ -5,14 +5,14 @@
 Start with [README.md](README.md), the source of challenge requirements and deliverables. Then consult:
 
 - [Task records](tasks/README.md) for task scope, acceptance, decisions, and results; read when working on either challenge task.
-- [Architecture](docs/architecture.md) for stack, file structure, execution boundaries, and data flow; read before technical decisions or locating responsibilities.
-- [Code patterns](docs/code-patterns.md) for implementation conventions; read when writing or refactoring code.
+- [Architecture](docs/architecture.md) for stack, structure, and flow; consult its [chosen boundaries](docs/architecture.md#chosen-responsibility-boundaries) before assigning responsibilities.
+- [Code patterns](docs/code-patterns.md) for conventions and boundary guidance; read when writing/refactoring code, especially UI and data fetching.
 - [Quality gates](docs/quality-gates.md) for size, complexity, correctness, and readability guidelines; read when writing or reviewing code.
 - [Design](docs/design.md) for existing styles and unresolved presentation choices; read when changing the UI.
 - [Testing](docs/testing.md) for commands, coverage, and verification limits; read when testing or validating changes.
 - [Local auto-commit skill](.agents/skills/auto-commit/SKILL.md) for planning and committing staged changes; read when the user requests staged commits.
 
-These references describe the inspected starter, not an approved future implementation. Update relevant references when behavior changes; keep them short and avoid duplicating requirements.
+References distinguish observed behavior, chosen directions, and pending proposals; documentation alone does not authorize implementation. Update relevant references when behavior changes; keep them short and avoid duplicating requirements.
 
 ## Paths in repository content
 

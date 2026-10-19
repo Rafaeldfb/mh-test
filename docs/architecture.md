@@ -39,6 +39,17 @@ Use this stack as the default. Discuss stack changes with the user before replac
 
 The mock plugin uses `configureServer`; it has no `configurePreviewServer` hook. `npm run dev` serves the mock endpoints. The build script checks types and bundles the frontend; it does not produce an API service. No preview script or production API setup is configured, so the built frontend alone does not supply these endpoints.
 
+## Chosen responsibility boundaries
+
+The user chose separation of application responsibilities for future implementation. Here, “domains” means keeping transport, marketing calculations, React lifecycle, and presentation distinct; it does not prescribe DDD, bounded contexts, repositories, or service classes.
+
+- **HTTP/API:** extend `src/api.ts` for requests, response parsing/validation, protocol errors, and forwarding cancellation signals. Keep it independent of React and DOM behavior. Coordinating the two API calls may remain a function in this module when cohesive.
+- **Marketing calculations:** use pure functions for transformations and metrics, separate from fetching and rendering; never mutate input data.
+- **React integration:** own lifecycle, request state, submit/retry, cancellation, and stale-result protection here. Extract a small hook when useful; keep transport and business rules outside it.
+- **UI components:** handle events and presentation through those functions/actions, without inline fetching, HTTP parsing, substantial request orchestration, or extensive business calculations.
+
+These are responsibility boundaries, not mandatory files per function, new folders, or a generic abstraction framework. `src/api.ts` already exists, but dashboard integration and the remaining separation are not implemented. See [implementation guidance](code-patterns.md#applying-the-chosen-boundaries) and the [Task 01 research](../tasks/01-render-dashboard/research.md#confirmed-fetching-boundary); detailed research options are not all approved by this direction. Task-specific layout stays in the task's design record.
+
 ## Request flow and current integration
 
 **Existing UI:** `index.html` → `main.tsx` → `App`. Typing updates local question state. Submitting only prevents navigation; it does not call the API, and the dashboard stays empty.
