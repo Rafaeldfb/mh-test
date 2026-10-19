@@ -5,13 +5,15 @@
 Verified against `package.json`, `tsconfig.json`, `vite.config.ts`, and the starter source:
 
 - **React and React DOM:** browser UI components and mounting; plain CSS provides styling.
-- **TypeScript:** application and mock-server code, shared contracts, and strict static checking.
+- **TypeScript 6:** application and mock-server code, shared contracts, and strict static checking. Version 6.0.3 replaces 7.0.2 to use the compiler API supported by typescript-eslint.
 - **Vite with the React plugin:** development server and frontend bundling.
 - **Recharts:** declared charting dependency; not yet used by the starter UI.
 - **Vitest:** test runner; see [Testing](testing.md) for existing coverage and script details.
+- **ESLint 10:** flat configuration with recommended JavaScript/TypeScript rules, core React Hooks checks, and the Vite React Refresh preset.
+- **Husky / lint-staged:** pre-commit ESLint checks for staged code, without automatic fixes; see [Testing](testing.md#pre-commit).
 - **Local mock API:** a Vite plugin serves JSON fixtures through browser `fetch`; no separate backend service is part of the starter.
 
-The documented workflow uses **npm**: `npm install`, `npm run dev`, and `npm test` in [README](../README.md), plus `npm run build` in `package.json`. Both `package-lock.json` and `pnpm-lock.yaml` exist, but `package.json` does not pin a package manager. Their presence alone does not establish which manager was used for a local installation. No installed versions or minimum runtime version are asserted here.
+The README originally documents npm, but the existing installation uses **pnpm 10.11.0**. Use pnpm for dependency changes and the scripts in [Testing](testing.md). The ESLint setup updates `pnpm-lock.yaml`; the preexisting `package-lock.json` is retained unchanged and is now stale. Do not use `npm ci` for this dependency snapshot. `package.json` does not pin a package manager. Validation used Node 22.15.0.
 
 Use this stack as the default. Discuss stack changes with the user before replacing the framework/toolchain or adding a backend/service. This does not prohibit installing supporting dependencies as allowed by the README.
 
@@ -32,6 +34,7 @@ Use this stack as the default. Discuss stack changes with the user before replac
 | `server/agent-response.json` | Static dashboard specification fixture. |
 | `server/contribution-rows.json` | Static investment and attributed-sales fixture. |
 | `vite.config.ts` | Registers the React and mock API plugins. |
+| `eslint.config.js` | Lint rules, environment globals, and generated-output exclusions. |
 | `tsconfig.json` / `package.json` | TypeScript settings / dependencies and executable scripts. |
 
 The mock plugin uses `configureServer`; it has no `configurePreviewServer` hook. `npm run dev` serves the mock endpoints. The build script checks types and bundles the frontend; it does not produce an API service. No preview script or production API setup is configured, so the built frontend alone does not supply these endpoints.

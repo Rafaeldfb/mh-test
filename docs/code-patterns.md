@@ -2,7 +2,8 @@
 
 These are observed conventions in the small starter, not a requirement to introduce more layers.
 
-- Source uses TypeScript, ES module imports, double quotes, semicolons, and two-space indentation. There is no configured formatter or linter in `package.json`.
+- Source uses TypeScript, ES module imports, double quotes, semicolons, and two-space indentation. ESLint uses a flat configuration in `eslint.config.js`; no formatter is configured.
+- The pre-commit hook checks staged code with ESLint and never applies automatic fixes; see [Testing](testing.md#pre-commit).
 - React components are functions in `.tsx` files with named exports. `App` uses `useState` for a controlled question input; `main.tsx` mounts it inside `StrictMode`.
 - Shared API contracts use exported type aliases in `src/types.ts`, with string unions for chart types, metrics, and breakdowns. TypeScript strict mode is enabled in `tsconfig.json`.
 - `src/api.ts` keeps fetch calls behind named helpers and imports contracts with `import type`. Its private generic helper rejects non-success HTTP responses and casts parsed JSON to the requested type; it does not validate response shapes at runtime.
