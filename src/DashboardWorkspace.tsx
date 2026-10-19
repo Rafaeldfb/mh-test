@@ -25,6 +25,23 @@ export function DashboardSource({ response }: { response: DashboardResponse }) {
   );
 }
 
+export function DashboardAnnouncements({ state }: { state: DashboardState }) {
+  const status = {
+    idle: "",
+    loading: "Carregando o painel…",
+    success: "Painel carregado.",
+    error: "",
+  };
+  return (
+    <>
+      <p role="status" aria-atomic="true" className="sr-only">{status[state.status]}</p>
+      <p role="alert" aria-atomic="true" className="sr-only">
+        {state.status === "error" ? state.message : ""}
+      </p>
+    </>
+  );
+}
+
 export function DashboardWorkspace({ state, retry }: { state: DashboardState; retry: () => void }) {
   if (state.status === "idle") return (
     <section className="empty-state">
@@ -35,23 +52,23 @@ export function DashboardWorkspace({ state, retry }: { state: DashboardState; re
   );
   if (state.status === "loading") return (
     <section aria-label="Painel em carregamento">
-      <p role="status">Carregando o painel…</p>
+      <p>Carregando o painel…</p>
       <div className="skeleton skeleton-title" aria-hidden="true" />
-      <div className="skeleton-grid" aria-hidden="true" aria-busy="true">
+      <div className="skeleton-grid" aria-hidden="true">
         {[0, 1, 2].map((index) => <div className="skeleton skeleton-card" key={index} />)}
       </div>
     </section>
   );
   if (state.status === "error") return (
     <section className="error-state">
-      <div role="alert"><h1>O painel não foi carregado</h1><p>{state.message}</p></div>
+      <h1>O painel não foi carregado</h1>
+      <p>{state.message}</p>
       <p>Pergunta: {state.question}</p>
       <button type="button" onClick={retry}>Tentar novamente</button>
     </section>
   );
   return (
     <section aria-label="Resultado da análise">
-      <p role="status" className="sr-only">Painel carregado.</p>
       <DashboardMetadata response={state.response} />
       <DashboardCharts charts={state.response.agent.charts} rows={state.response.data.rows} />
       <DashboardSource response={state.response} />

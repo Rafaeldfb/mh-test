@@ -1,24 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { ApiError, loadDashboard } from "./api";
+import { loadDashboard } from "./api";
 import type { DashboardResponse } from "./api";
+import { failureMessage } from "./dashboard-messages";
 
 export type DashboardState =
   | { status: "idle" }
   | { status: "loading"; question: string }
   | { status: "success"; question: string; response: DashboardResponse }
   | { status: "error"; question: string; message: string };
-
-function failureMessage(error: unknown): string {
-  if (!(error instanceof ApiError)) return "Não foi possível carregar o painel. Tente novamente.";
-  const origin = error.endpoint === "/api/data" ? "os dados" : "a especificação do painel";
-  const reasons = {
-    http: "O serviço não respondeu com sucesso",
-    network: "Não foi possível conectar ao serviço",
-    json: "O serviço retornou uma resposta ilegível",
-    contract: "O serviço retornou informações incompatíveis",
-  };
-  return `${reasons[error.kind]} ao consultar ${origin}. Tente novamente.`;
-}
 
 export function useDashboard() {
   const [state, setState] = useState<DashboardState>({ status: "idle" });

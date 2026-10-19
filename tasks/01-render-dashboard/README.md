@@ -39,3 +39,5 @@ The confirmed navbar/workspace/fixed-composer design is implemented with a measu
 Use the [task procedure and references](../README.md) for implementation/review guidance and [Architecture](../../docs/architecture.md#supplied-contracts-and-adopted-handling) for fixture constraints.
 
 - Deliverable 04: all observable acceptance implemented and manually inspected; final code and documentation review clean. [Evidence and verification limits](deliverables/04-dashboard-charts.md#execution-evidence) cover responsive charts, keyboard values, request recovery, reduced motion and composer clearance. No build, commit, push, Task 02, final DECISOES or final delivery screenshot included.
+
+- External-review follow-up: proportional integrity, accessibility and presentation fixes are implemented; checks pass with 28 tests. See [dispositions and validation](review-decisions.md). Unsupported combinations and exact question matching remain deliberate; baseline validation remains Task 02 work.

@@ -1,3 +1,4 @@
+import { validateChannelTotals } from "./data-integrity";
 import type { AgentResponse, ChartSpec, DataResponse, Period } from "./types";
 
 type RecordValue = Record<string, unknown>;
@@ -38,25 +39,41 @@ function chart(value: unknown): ChartSpec {
   if (!["bar/roi/channel", "bar/investment/vehicle", "pie/contribution/channel"].includes(combination)) {
     throw new Error("Unsupported chart combination");
   }
-  return { id: text(c.id), title: text(c.title), type,
-    metric, breakdown } as ChartSpec;
+  return {
+    id: text(c.id),
+    title: text(c.title),
+    type,
+    metric,
+    breakdown,
+  } as ChartSpec;
 }
 export function parseAgent(value: unknown): AgentResponse {
   const a = record(value);
   const source = record(a.source);
   const charts = list(a.charts).map(chart);
   if (new Set(charts.map((c) => c.id)).size !== charts.length) throw new Error("Duplicate chart ID");
-  return { question: text(a.question), title: text(a.title), summary: text(a.summary),
-    period: period(a.period), source: { table: text(source.table), model: text(source.model) }, charts };
+  return {
+    question: text(a.question),
+    title: text(a.title),
+    summary: text(a.summary),
+    period: period(a.period),
+    source: { table: text(source.table), model: text(source.model) },
+    charts,
+  };
 }
 export function parseData(value: unknown): DataResponse {
   const d = record(value);
   const rows = list(d.rows).map((value) => {
     const r = record(value);
-    return { channel: text(r.channel), vehicle: r.vehicle === null ? null : text(r.vehicle),
-      investment: amount(r.investment), contribution: amount(r.contribution),
+    return {
+      channel: text(r.channel),
+      vehicle: r.vehicle === null ? null : text(r.vehicle),
+      investment: amount(r.investment),
+      contribution: amount(r.contribution),
       // Annual baselines are not consumed by Task 01.
-      baseline: r.baseline as number | null };
+      baseline: r.baseline as number | null,
+    };
   });
+  validateChannelTotals(rows);
   return { period: period(d.period), rows };
 }

@@ -88,6 +88,15 @@ describe("API boundary", () => {
   });
 });
 
+it("rejects inconsistent data with endpoint and channel context", async () => {
+  mockPair(agent, { ...data, rows: [...rows, rows[0]] });
+  await expect(loadDashboard(question)).rejects.toMatchObject({
+    endpoint: "/api/data",
+    kind: "contract",
+    cause: { issue: "duplicate-total", channel: "TV" },
+  });
+});
+
 describe("combined loading", () => {
   for (const first of ["agent", "data"]) {
     it(`starts both calls and waits when ${first} finishes first`, async () => {

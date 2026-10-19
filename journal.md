@@ -246,3 +246,18 @@ Time zone: America/Sao_Paulo (UTC−03:00).
 - **User method:** the user initiated implementation in one main thread, executing tasks/subtasks sequentially with a reviewer agent after each. The main agent judges findings, corrects valid issues, and repeats review until no findings remain before advancing, continuing until all deliverables are complete.
 - **Versioned, reusable prompt:** the user requested an English prompt with path placeholders so the method can be reused beyond Task 01. The method is maintained in [.agents/prompts/implementation-loop.md](.agents/prompts/implementation-loop.md), replacing duplicated prompt text here; the documentation chat is updating its portability. Saving the prompt does not execute it or authorize Git actions.
 - **Journal purpose:** keep concise records of the user's requests, decisions, and use of AI; detailed execution progress and technical evidence belong in task records.
+
+## 2026-10-19, 20:21 — Reusing the preparation workflow for Task 02
+
+- After the Task 01 commit and push, the user requested the same preparation workflow for Task 02. The coordinator delegated codebase research and a decision brief, saved as `tasks/02-year-over-year-investment/research.md` and `decision-brief.md`, with links in the task README.
+- The briefing identifies four available comparisons and TikTok's missing baseline, explaining missing versus zero and proposing omission of an incomplete annual total. The user will still evaluate presentation options: existing details versus a dedicated table. No Task 02 policy or design direction has been approved, and implementation has not started.
+- The method remains research → decisions/design → unit strategy → deliverable plan; do not generate the plan automatically before establishing context.
+
+## 2026-10-19, 20:23 — External review for independent adjudication
+
+- The user supplied an external Task 01 review, reporting that it was produced by a Cursor agent using Opus 5.5: [code review](tasks/01-render-dashboard/code-review.md).
+- The user asked the coordinator to forward it to the Implementador for evidence-based judgment rather than blind acceptance. The Implementador completed adjudication against the code and reproductions, explaining accepted, partially accepted, and refuted findings. Accepted concerns mainly involve data and accessibility; future-scope items remain deferred to Task 02 or unapproved integration testing. Detailed dispositions remain in the Implementador report. No corrections, review/code/index edits, commits, pushes, full test suite, or build were performed; authorization to apply corrections remains pending.
+
+## 2026-10-19 — Adjudication accepted and execution authorized
+
+The user reviewed the main agent's judgment, agreed with all points, and authorized execution according to that judgment.
