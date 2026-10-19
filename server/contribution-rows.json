@@ -1,0 +1,14 @@
+[
+  { "channel": "TV", "vehicle": null, "investment": 1600000, "contribution": 3600000, "baseline": 1550000 },
+  { "channel": "TV", "vehicle": "Globo", "investment": 1200000, "contribution": 3000000, "baseline": 1100000 },
+  { "channel": "TV", "vehicle": "SBT", "investment": 400000, "contribution": 600000, "baseline": 450000 },
+  { "channel": "YouTube", "vehicle": null, "investment": 500000, "contribution": 1500000, "baseline": 300000 },
+  { "channel": "YouTube", "vehicle": "YouTube", "investment": 500000, "contribution": 1500000, "baseline": 300000 },
+  { "channel": "Meta", "vehicle": null, "investment": 750000, "contribution": 2100000, "baseline": 600000 },
+  { "channel": "Meta", "vehicle": "Facebook", "investment": 300000, "contribution": 750000, "baseline": 350000 },
+  { "channel": "Meta", "vehicle": "Instagram", "investment": 450000, "contribution": 1350000, "baseline": 250000 },
+  { "channel": "Google Search", "vehicle": null, "investment": 600000, "contribution": 2400000, "baseline": 650000 },
+  { "channel": "Google Search", "vehicle": "Google", "investment": 600000, "contribution": 2400000, "baseline": 650000 },
+  { "channel": "TikTok", "vehicle": null, "investment": 250000, "contribution": 500000, "baseline": null },
+  { "channel": "TikTok", "vehicle": "TikTok", "investment": 250000, "contribution": 500000, "baseline": null }
+]

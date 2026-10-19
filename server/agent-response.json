@@ -1,0 +1,29 @@
+{
+  "title": "Investimento de R$ 3,7 mi no 3º trimestre de 2026",
+  "summary": "Google Search trouxe R$ 4,00 em vendas para cada R$ 1 investido, o maior retorno entre os canais. TV teve o maior investimento.",
+  "period": { "start": "2026-07-01", "end": "2026-09-30", "label": "3º trimestre de 2026" },
+  "source": { "table": "mmm_results.contribution_by_channel", "model": "mmm-2026-q3" },
+  "charts": [
+    {
+      "id": "roi-by-channel",
+      "type": "bar",
+      "title": "Vendas por real investido",
+      "metric": "roi",
+      "breakdown": "channel"
+    },
+    {
+      "id": "investment-by-vehicle",
+      "type": "bar",
+      "title": "Investimento por veículo",
+      "metric": "investment",
+      "breakdown": "vehicle"
+    },
+    {
+      "id": "contribution-share",
+      "type": "pie",
+      "title": "Participação nas vendas",
+      "metric": "contribution",
+      "breakdown": "channel"
+    }
+  ]
+}
