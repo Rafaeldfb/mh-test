@@ -126,3 +126,10 @@ Time zone: America/Sao_Paulo (UTC−03:00).
 - **Decision and reported delivery:** the user specified the strict sequence typecheck, lint, then tests. The code chat implemented `.husky/pre-push` with `pnpm typecheck && pnpm lint && pnpm test` and updated `docs/testing.md`.
 - **Reported verification:** all three real checks passed (one test), with only a non-blocking Vite warning. Fixture checks confirmed that failure at each step blocks subsequent steps. Pre-commit, HEAD, and the index were preserved; no build, commit, or push was performed.
 - **Execution scope:** the hook checks the current working tree and requires Node and pnpm in PATH. This journal checkpoint was added only to the working tree.
+
+## 2026-10-19, 18:28 — Tooling commits and live hook checks
+
+- **Authorization and scope correction:** the user staged all changes and authorized the coordinator to assess and approve the commit plan. Two Next.js snippets of unidentified provenance appeared in the initial plan; the user removed them from staging and authorized their deletion. The executor confirmed deletion without changing the index.
+- **Approved outcome:** the coordinator approved the revised two-commit plan. The executor created `9557c96` — “Configure TypeScript 6 linting and Git hooks” and `6501a7d` — “Update project naming and preparation journal”. Both ran the active pre-commit hook successfully: ESLint passed for the first; the second contained no applicable code files.
+- **Reported validation:** a real local `git hook run pre-push` passed typecheck, lint, and tests in order (one test, exit 0), without a remote push or build. The executor checked trees, indexes, files, and stashes. The two commits and a clean working tree were also confirmed before this journal update.
+- **Pending journal change:** this checkpoint remains uncommitted in the working tree after those commits; no additional staging, commit, or push was performed.
