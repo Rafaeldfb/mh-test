@@ -2,7 +2,7 @@
 
 A simple record for the user and agents to track the work. It may serve as input for the final `DECISOES.md` document required by the README, but does not replace it.
 
-Write future checkpoints in English, as requested by the user. Record the date/time, objective or request, action and outcome, decisions and rationale, checks and pending work. Include only relevant facts; there is no need to record every message.
+Write future checkpoints in English, as requested by the user. Focus on the user’s requests, decisions, coordination, and use of AI, rather than detailed technical delivery tracking; execution status and technical evidence belong in task records. Preserve original user prompts in their original language when quoted. Record relevant facts concisely, without transcribing every message.
 
 ## 2026-10-19, 16:36 — Understanding and planning
 
@@ -234,3 +234,15 @@ Time zone: America/Sao_Paulo (UTC−03:00).
 - **Request and reported review:** the user requested a full readiness review for generating the task 01 plan. Read-only documentation and code reviews found no blockers, required new dependencies, or mandatory human decisions; specifications, design, test scope, stack, and links were consistent. The current stack was checked, but tests were not rerun. No plan or implementation was created.
 - **Planning boundaries:** channel totals/vehicle details, ratio-of-sums aggregation, unavailable invalid ratios, parallel requests, and retry may be proposed with rationale in the plan; they are not prior approvals. An outdated statement in `docs/design.md` that mobile design was undefined is being corrected to match the selected task 01 direction.
 - **Proportional scope:** respect the suggested three-hour budget by prioritizing the complete three-chart flow, loading/error states, and relevant unit tests, while avoiding extensive defensive infrastructure. Integration remains unapproved; manual visual validation is still future work. Task 02, the year-over-year comparison, `DECISOES.md`, and the final screenshot remain separate future deliverables. This entry remains only in the working tree.
+
+## 2026-10-19, 19:48 — Task 01 plan saved for review
+
+- **Request and reported delivery:** the user requested progressive disclosure and small, self-contained, contextual deliverables executable one at a time, saved in Markdown rather than only agent memory. The code chat created `tasks/01-render-dashboard/plan.md`, linked it from the task README, and added four files under `tasks/01-render-dashboard/deliverables/`: `01-chart-data.md`, `02-dashboard-loading.md`, `03-request-workspace.md`, and `04-dashboard-charts.md`.
+- **Coordinator review:** the artifacts describe sequence/dependencies, minimal readings, scope, outputs, acceptance, validation, and evidence placeholders. Human design and responsibility-separation choices are preserved; data/error defaults are proposals in the plan. Unit tests are in scope; integration and E2E are excluded.
+- **Status:** the plan remains under review, without authorization to execute; deliverables are “Not started”. No code implementation, tests, builds, or Git operations occurred. This checkpoint remains only in the working tree.
+
+## 2026-10-19, 20:05 — Implementation and review loop
+
+- **User method:** the user initiated implementation in one main thread, executing tasks/subtasks sequentially with a reviewer agent after each. The main agent judges findings, corrects valid issues, and repeats review until no findings remain before advancing, continuing until all deliverables are complete.
+- **Versioned, reusable prompt:** the user requested an English prompt with path placeholders so the method can be reused beyond Task 01. The method is maintained in [.agents/prompts/implementation-loop.md](.agents/prompts/implementation-loop.md), replacing duplicated prompt text here; the documentation chat is updating its portability. Saving the prompt does not execute it or authorize Git actions.
+- **Journal purpose:** keep concise records of the user's requests, decisions, and use of AI; detailed execution progress and technical evidence belong in task records.

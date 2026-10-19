@@ -1,6 +1,6 @@
 # 01 — Render the agent dashboard
 
-Status: Not started
+Status: Complete — all four deliverables implemented and reviewed.
 
 ## Objective and scope
 
@@ -20,23 +20,22 @@ Render the dashboard returned by the agent using the separate data API, with loa
 
 In [the fixture](../../server/contribution-rows.json), rows with `vehicle: null` represent channel totals; named vehicles detail those same totals. TV investment is R$1.6 million, already composed of Globo's R$1.2 million plus SBT's R$0.4 million. Adding the TV total to those details would count the same investment twice (R$3.2 million).
 
-Chart breakdowns therefore describe different granularities: `channel` compares marketing channels, while `vehicle` compares their detailed vehicles. Using total rows for channel charts and detail rows for vehicle charts is a suggested interpretation, not an approved implementation decision; selection/aggregation remains open below.
+Chart breakdowns therefore describe different granularities: `channel` compares marketing channels, while `vehicle` compares their detailed vehicles. The implementation adopts total rows for channel charts and detail rows for vehicle charts to avoid double-counting.
 
-## Pending decisions
+## Adopted decisions
 
-The primary UI direction is chosen: top Media Hero navbar, floating composer fixed at the bottom independently of scrolling, workspace above, skeletons during requests, and gradual title/chart reveal after both responses succeed. Reserve sufficient scroll clearance for the final chart and source to be fully visible above the composer, including on mobile. The earlier image's top-form layout is a chart reference only. This direction does not require reapproval; the items below concern remaining details.
+The user authorized all four deliverables in sequence, each gated by a clean `gpt-6.1-sol` high review. Channel charts select supplied totals, vehicle charts select details; no aggregation across granularities. ROI is contribution/investment, unavailable for invalid denominators/results. This keeps zero sales distinct from missing ratios. Baseline/year comparison remains Task 02.
 
-Read the [design direction](design.md) for the user-confirmed bottom composer, workspace above, and progressive presentation. Read the [decision brief](decision-brief.md) for verified figures and proposed defaults, and [research](research.md) for supporting investigation. These records do not authorize implementation.
+Native parallel fetch with consumed-field validation publishes one matching response pair. React owns cancellation and current-attempt checks. Submission is disabled and synchronously guarded while pending. Retry uses the failed question snapshot; editable text survives. Earlier results are hidden during loading/error. No cache or automatic retries are needed for this single-panel flow.
 
-- How to select/aggregate total and detail rows for each breakdown, and handle undefined ratios.
-- Option 1's layout is chosen: two desktop columns, first chart full-width, subsequent cards in API order, and one column on mobile; see [design](design.md). Exact chart dimensions, formatting, request coordination, and loading/error mechanics remain implementation details within the confirmed direction, including fixed bottom composer positioning and sufficient content clearance.
-
-Unit verification planning is recorded in the [testing strategy](testing-strategy.md); it is not evidence of executed checks.
+The confirmed navbar/workspace/fixed-composer design is implemented with a measured clearance, skeletons, short CSS entrances and reduced-motion support. The first chart spans two desktop columns; narrow screens use one column. Precise values remain keyboard-accessible through native details tables. See the [plan](plan.md), [design](design.md), and individual delivery evidence.
 
 ## Review and validation results
 
-- Review: Not performed; findings and resolutions not yet recorded.
-- Validation: Not run; commands, scenarios, and results not yet recorded.
-- Acceptance evidence: None yet.
+- Deliverable 01: clean gpt-6.1-sol high review; typecheck/lint/test pass (4 tests). Totals and details are selected separately; invalid ROI is unavailable. See [evidence](deliverables/01-chart-data.md#execution-evidence).
+- Deliverable 02: clean re-review after fixing discriminant coercion; typecheck/lint/test pass (14 tests). See [evidence and metric exception](deliverables/02-dashboard-loading.md#execution-evidence).
+- Deliverable 03: clean review after moving busy state away from live status; checks and browser flow evidence in [delivery record](deliverables/03-request-workspace.md#execution-evidence). Charts integrated in 04.
 
-Use the [task procedure and references](../README.md) for implementation/review guidance and [Architecture](../../docs/architecture.md#supplied-contracts-and-unresolved-handling) for fixture constraints.
+Use the [task procedure and references](../README.md) for implementation/review guidance and [Architecture](../../docs/architecture.md#supplied-contracts-and-adopted-handling) for fixture constraints.
+
+- Deliverable 04: all observable acceptance implemented and manually inspected; final code and documentation review clean. [Evidence and verification limits](deliverables/04-dashboard-charts.md#execution-evidence) cover responsive charts, keyboard values, request recovery, reduced motion and composer clearance. No build, commit, push, Task 02, final DECISOES or final delivery screenshot included.

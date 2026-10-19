@@ -34,14 +34,14 @@ The hook uses the existing Husky activation and requires Node and pnpm in the pu
 
 ## Existing coverage
 
-`src/api.test.ts` contains one test: it stubs global `fetch`, calls `askAgent`, and checks that the question is URL-encoded. It does not exercise the mock server or verify a real response shape.
+`src/chart-data.test.ts` checks fixture totals, five channel/seven vehicle points, supplied ROI, invalid denominators, and immutability. `src/api.test.ts` checks transport errors, consumed contracts (including chart-discriminant coercion), signal forwarding/cancellation, fresh retry, parallel completion, and consistency. There are 14 tests across 2 files.
 
-There are no existing tests for `fetchData`, HTTP failures, dashboard rendering, loading states, chart transformations, or annual investment comparisons. When those behaviors are implemented, these are relevant verification gaps; see [Architecture](architecture.md) for the data constraints.
+No hook/DOM/integration/E2E suite is included. Browser-only inspection covered states, endpoint failures/retry, StrictMode lifecycle, keyboard access, responsive clearance, and reduced motion; see [Task 01 evidence](../tasks/01-render-dashboard/README.md#review-and-validation-results). These checks are manual evidence, not unit coverage.
 
-For manual failure checks during development, use the mock API's `fail=1` query parameter as described in [Architecture](architecture.md). The current UI has no API or failure-toggle wiring.
+For manual failure checks during development, use the mock API's `fail=1` query parameter as described in [Architecture](architecture.md). Use development-only request interception to apply that query parameter; the production UI has no failure switch.
 
 ## Verification status
 
-After the ESLint setup and TypeScript 6.0.3 change, `pnpm lint`, `pnpm typecheck`, and `pnpm test` passed (one existing test). No build or browser validation was run.
+Task 01: `pnpm typecheck`, `pnpm lint`, and `pnpm test` passed (14 tests). No build was run. Deliverable records contain review outcomes and measured size/complexity, since normal lint does not enforce those gates.
 
-Vitest emits a Vite warning about a future native configuration loader: the starter uses an extensionless mock-plugin import and JSON imports without attributes. This does not fail the current test and was left unchanged.
+Vitest still emits the existing future native-loader advisory for the Vite config's extensionless mock import and JSON imports without attributes. It does not fail checks.

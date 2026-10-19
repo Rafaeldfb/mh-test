@@ -1,8 +1,8 @@
 # Task 01 design direction
 
-Status: User-confirmed direction; not implemented. Details explicitly marked as proposals remain open. This document does not authorize implementation or approve the data-handling proposals in the [decision brief](decision-brief.md).
+Status: Implemented under user authorization. See [execution evidence](README.md#review-and-validation-results) for adopted details and verification limits. Earlier proposals below are retained as design context.
 
-The top navbar, fixed bottom composer, workspace above, loading skeletons, and gradual title/chart reveal after both responses succeed are the chosen primary approach for Task 01. This direction is settled and does not require reapproval; the earlier top-form layout is not a competing option.
+The top navbar, fixed bottom composer, workspace above, loading skeletons, and gradual title/chart reveal after both responses succeed are the chosen primary approach for Task 01. This direction is implemented; the earlier top-form layout is retained only in historical studies.
 
 ## Confirmed user direction
 
@@ -17,14 +17,14 @@ This is a single dashboard flow. Conversation history, sidebars, message bubbles
 
 ## Interaction states
 
-| State | Intended behavior and proposed details |
+| State | Implemented behavior |
 | --- | --- |
-| Idle | Workspace above the bottom composer, with a visible input label and submit action. Proposal: a short invitation to ask a question, without sample numeric results. |
-| Loading | Show skeleton regions while required responses are pending. Represent waiting for the panel, without invented reasoning/tool stages or fabricated values. Proposal: one concise status announcement and disabled duplicate submission. |
-| Success / gradual reveal | Reveal real content only after both responses succeed. Proposal: introduce title, summary, and context, then reveal the three charts in specification order. Use short entrances rather than long artificial waits; exact order, timing, and animation remain open. |
-| Error / retry | Clearly explain failure and preserve the question for recovery. Do not complete the canvas as a successful dashboard if either endpoint fails. Proposal: an explicit retry action that repeats both requests for the submitted question. |
+| Idle | Workspace above the bottom composer, with a visible input label and submit action. A short invitation asks for a question, without sample numeric results. |
+| Loading | Show skeleton regions while required responses are pending. Represent waiting for the panel, without invented reasoning/tool stages or fabricated values. One concise status announcement accompanies disabled duplicate submission. |
+| Success / gradual reveal | Reveal real content only after both responses succeed. Introduce title, summary and context, then the three charts in specification order with 90/180/270ms CSS delays. |
+| Error / retry | Clearly explain failure and preserve the question for recovery. Do not complete the canvas as a successful dashboard if either endpoint fails. An explicit retry repeats both requests for the submitted question. |
 
-Respect `prefers-reduced-motion`: omit staggered movement/delays and show the completed result promptly. A typewriter effect is not required; a simple appearance or fade can introduce text. Proposed accessibility details: announce loading and errors, preserve keyboard focus in the composer, and avoid announcing every animated element separately.
+Respect `prefers-reduced-motion`: omit staggered movement/delays and show the completed result promptly. A typewriter effect is not required; a simple appearance or fade can introduce text. Implemented accessibility details: announce loading and errors, preserve keyboard focus in the composer, and avoid announcing every animated element separately.
 
 ## Chosen Task 01 layout
 
@@ -32,7 +32,7 @@ Use [option 1](design/dashboard-inspiration-v2.png) as the desktop base for this
 
 Render a loop over `charts` in the returned order. Keep the layout in small CSS rules, without a layout generator, templates, chart-ID rules, backend positions, or new libraries. For example, `repeat(2, minmax(0, 1fr))`, a first-card span of `1 / -1`, a 24px gap, and a 720px single-column breakpoint illustrate the approach; gap and breakpoint are delegable parameters, not fixed approved requirements.
 
-Recharts follows each card's available width. Choose proportional heights by chart type and category count with simple bounds; do not build an automatic layout engine. Exact heights, spacing, colors, and animation timing remain implementation details. Prioritize a small, readable implementation within the challenge's time budget.
+Recharts follows each card's available width. Choose proportional heights by chart type and category count with simple bounds; do not build an automatic layout engine. Heights, spacing, colors and animation timing are defined in the stylesheet and chart components. Prioritize a small, readable implementation within the challenge's time budget.
 
 Keep the workspace above the fixed, floating composer. Bottom clearance must allow charts, source context, and focusable controls to scroll fully above it. On mobile, adapt chart labels and the input/button arrangement without horizontal overflow; account for the composer's variable height, on-screen keyboard, viewport, and safe areas. Fixed bottom positioning is confirmed; scroll ownership and clearance mechanics remain delegable.
 
@@ -40,4 +40,4 @@ Keep the workspace above the fixed, floating composer. Bottom clearance must all
 
 The [v1 image](design/dashboard-inspiration-v1.png) remains a useful study of chart hierarchy, labels, and values. Its top composer and static page arrangement are superseded by the confirmed direction above. It is generated inspiration, not an app screenshot or an approved final UI.
 
-Data selection, aggregation, and undefined-ratio handling remain proposals in the [decision brief](decision-brief.md). Request coordination research is in [research](research.md); complete responses are compatible with subsequent visual reveal.
+Data-selection and undefined-ratio policies were adopted as recorded in the [task decisions](README.md#adopted-decisions); the [decision brief](decision-brief.md) retains planning context. Request coordination research is in [research](research.md); complete responses are compatible with subsequent visual reveal.
