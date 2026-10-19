@@ -156,3 +156,14 @@ Time zone: America/Sao_Paulo (UTC−03:00).
 
 - **Decision:** the user explicitly chose not to add a SOLID checklist to the quality gates, considering the existing guidelines sufficient and proportional to the take-home challenge.
 - **Authorization and pending execution:** the user authorized the documentation auto-commit, hook checks, and push workflow, with this journal update completed before its snapshot is taken. Commit and push outcomes are still pending; this entry was added only to the working tree.
+
+## 2026-10-19, 18:45 — Minimal task records
+
+- **Decision and reported delivery:** after weighing costs and benefits, the user authorized a minimal GoHorse-inspired experiment. The documentation chat created `tasks/README.md` (19 lines), `tasks/01-render-dashboard/README.md` (28 lines), and `tasks/02-year-over-year-investment/README.md` (28 lines), with an index reference in `AGENTS.md`.
+- **Structure and status:** each task has one folder and README covering objective, acceptance criteria, decisions, review, and validation. Both are marked “Not started”; validations have not run and data decisions remain open. The structure reuses existing documentation without adding roles, tooling, or the full framework.
+- **Reported verification:** the executor reviewed links, status, privacy, and whitespace. No dashboard implementation, tests, builds, installation, staging, commits, or pushes were performed. This checkpoint was added only to the working tree.
+
+## 2026-10-19, 18:54 — Task records accepted before development
+
+- **Clarification and acceptance:** while reviewing task 01, the user asked about “Observable acceptance” and “Pending decisions”. The coordinator explained that these headings are our adaptation of the README, contracts, and open choices, not headings supplied by the company. The user explicitly accepted the current records and chose to keep them without reformulation.
+- **Next step:** the user requested this journal update and a commit of the current state before development. The commit remains pending; task execution is the following step, and implementation has not been started by this request. This entry was added only to the working tree.

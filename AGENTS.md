@@ -4,6 +4,7 @@
 
 Start with [README.md](README.md), the source of challenge requirements and deliverables. Then consult:
 
+- [Task records](tasks/README.md) for task scope, acceptance, decisions, and results; read when working on either challenge task.
 - [Architecture](docs/architecture.md) for stack, file structure, execution boundaries, and data flow; read before technical decisions or locating responsibilities.
 - [Code patterns](docs/code-patterns.md) for implementation conventions; read when writing or refactoring code.
 - [Quality gates](docs/quality-gates.md) for size, complexity, correctness, and readability guidelines; read when writing or reviewing code.
