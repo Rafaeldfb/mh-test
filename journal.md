@@ -23,13 +23,13 @@ Time zone: America/Sao_Paulo (UTC−03:00).
 ## 2026-10-19, 16:40 — Local Git initialization completed
 
 - **Action and outcome:** retried `git init .` through the sandbox's normal elevated-permission mechanism. Permission was granted and the local repository was initialized successfully, resolving the previous checkpoint's blocker.
-- **Verification:** `git rev-parse --show-toplevel` confirmed `/HM-test` as the repository root. `git status --short` showed only untracked project files; `git remote -v` returned no remotes. No files were staged and no commits were created.
+- **Verification:** `git rev-parse --show-toplevel` confirmed the project directory as the repository root (represented here by the illustrative `/mh-test`, not the literal filesystem path). `git status --short` showed only untracked project files; `git remote -v` returned no remotes. No files were staged and no commits were created.
 - **Pending work:** none for the requested local initialization.
 
 ## 2026-10-19, 16:41 — Portable paths in shared artifacts
 
-- **Request and decision:** keep personal directory structures out of repository content and shareable artifacts. Use project-relative paths or the illustrative root `/HM-test`; real local paths may be used internally by tools.
-- **Action and outcome:** replaced the personal absolute path in this journal with `/HM-test` and added the rule to the root `AGENTS.md`. The `.codex` directory serves as a supporting location, with a short pointer to the root instructions.
+- **Request and decision:** keep personal directory structures out of repository content and shareable artifacts. Use project-relative paths or the illustrative root `/mh-test`; real local paths may be used internally by tools.
+- **Action and outcome:** replaced the personal absolute path in this journal with `/mh-test` and added the rule to the root `AGENTS.md`. The `.codex` directory serves as a supporting location, with a short pointer to the root instructions.
 - **Verification:** a focused scan of project-owned text files found no remaining personal path references after the correction; Git metadata, dependencies, lockfiles, and generated output were excluded.
 
 ## 2026-10-19, 16:44 — Chat responsibilities
@@ -72,3 +72,57 @@ Time zone: America/Sao_Paulo (UTC−03:00).
 - **Request and reported delivery:** the user prioritized tooling and requested a simple local `auto-commit` skill to understand staged changes and intent, propose commit titles and grouping, and execute the approved groups. Using `skill-creator`, the documentation chat created `.agents/skills/auto-commit/SKILL.md` (55 lines) and a reference in `AGENTS.md`.
 - **Documented workflow:** approve the concrete plan, group cohesive changes by paths, preserve partial staging and unstaged/untracked work, respect hooks, and never push.
 - **Reported verification and scope:** `quick_validate.py` passed and the executor performed a static review. The skill has not been executed; no staging or commits occurred in this task, and the global skill remains unchanged. This is tooling preparation, not dashboard implementation.
+
+## 2026-10-19, 17:59 — Commit skill planning trial
+
+- **Authorization:** the user staged changes and authorized planning only, explicitly excluding commits. The code chat used the local skill in read-only mode and reported 25 staged files, all complete additions, with no conflicts, renames, or unstaged changes at inspection; `main` had no first commit yet.
+- **Proposed plan, not approved for execution:** two commits: “Initialize Media Hero challenge starter” (17 starter/configuration/API/test/requirements files) and “Document project context and agent workflow” (8 instruction/documentation/skill/journal files).
+- **Reported verification:** the cached diff whitespace check passed. The executor ran no tests or builds and performed no commits or staging.
+- **Snapshot preservation:** this checkpoint was added only to the working tree, leaving the staged journal unchanged. The proposed plan uses the earlier staged snapshot and remains under review.
+
+## 2026-10-19, 18:01 — First approved commit execution
+
+- **Review and approval:** the user requested an assessment of the plan and titles. The coordinator considered the split appropriate (received starter versus added documentation/tooling), retained the messages, and the user explicitly approved execution.
+- **Outcome:** the code chat successfully used the local skill to create `59e1f8d` — “Initialize Media Hero challenge starter” and `e7fc4a6` — “Document project context and agent workflow”; both commits were confirmed in the local log.
+- **Executor verification:** checked the snapshot before execution and trees, index, and preservation after each commit. Nothing remained staged, and the existing unstaged journal delta was fully preserved outside the commits. No push, installation, build, or hook bypass occurred; this demonstrates the skill's first real execution, not functional dashboard validation.
+- **Journal update:** this checkpoint was added only to the working tree, without staging or committing it.
+
+## 2026-10-19, 18:06 — Media Hero naming correction
+
+- **User correction and reported review:** the company initials are MH, not HM; the supplied GitHub name `mh-test` was already correct. The review confirmed that the UI already used “Media Hero” correctly and that the illustrative root in `AGENTS.md` was corrected to `/mh-test`. This journal now uses the same illustrative root.
+- **Physical directory at this checkpoint:** the local folder was still named `HM-test`, and renaming was pending coordination of session and project paths. The subsequent checkpoint records its completion.
+
+## 2026-10-19, 18:07 — Physical directory rename completed
+
+- **Authorized outcome:** with explicit user authorization, the code chat renamed the physical project folder from `HM-test` to `mh-test`, completing the Media Hero/MH naming correction without overwriting a destination. Illustrative references had already been corrected to `/mh-test`.
+- **Executor verification:** reported preserving `.git`, both commits, the index, and local changes in `AGENTS.md` and `journal.md`.
+- **Session follow-up:** app sessions may need reopening in the new directory. This journal update uses the new directory only; no staging, commits, or internal app database changes were performed.
+
+## 2026-10-19, 18:09 — Authorized initial push
+
+- **Authorization and reported outcome:** the user authorized configuring `origin` for the `mh-test` GitHub repository, using `main`, and running `git push -u origin main`. The code chat pushed the two existing commits, `59e1f8d` and `e7fc4a6`, and verified that `main` and `origin/main` pointed to the same commit with the upstream configured.
+- **Preservation and authentication:** local changes in `AGENTS.md` and `journal.md` were preserved and not pushed. The executor used host authentication through `github-cli-keyring` without changing credentials.
+- **Journal scope:** this checkpoint was added only to the working tree; no additional staging, commits, or pushes were performed.
+
+## 2026-10-19, 18:16 — ESLint and TypeScript setup
+
+- **Request and decision:** the user requested ESLint setup and reinforced that the coordinator delegates execution. After the code executor identified the declared/installed TypeScript 7 as incompatible with typescript-eslint, the user explicitly selected TypeScript 6 and rejected TypeScript 7 for this project.
+- **Reported delivery and validation:** the executor configured TypeScript 6.0.3, ESLint 10.13.0, a flat config covering JS/TS, React Hooks, and React Refresh, plus `lint` and `typecheck` scripts. Using the existing pnpm installation, `pnpm lint`, `pnpm typecheck`, and `pnpm test` passed (one test). No application code changed.
+- **Files and limits:** updated `package.json`, `pnpm-lock.yaml`, `eslint.config.js`, and the architecture, code-patterns, and testing documents. `package-lock.json` was preserved but is outdated; pnpm is the current workflow. No build, staging, commit, or push was performed.
+
+## 2026-10-19, 18:16 — Hook research and pending pre-commit choice
+
+- **Requested research:** the user requested a subagent to inspect Husky usage in other projects, including pre-commit and pre-push. Read-only research reported that AP/AP-2 use `prepare` with Husky, pre-commit runs `pnpm exec lint-staged` with Prettier `--write` on staged files, and a pre-push wrapper runs TypeScript checks, typed lint, and tests in parallel before a build. Go-Horse had no Husky setup. No hooks were installed here.
+- **Next step, not yet decided:** the user wants to address hooks individually, starting with pre-commit. The coordinator suggested ESLint on staged files and asked whether it should only check or automatically fix them. That choice remains pending; no concrete hook configuration has been authorized.
+
+## 2026-10-19, 18:20 — Check-only pre-commit enabled
+
+- **Decision:** the user selected error reporting without autofix so the agent can correct issues with context. The user also explicitly assigned typechecking without emission to pre-push, not pre-commit; pre-push remains unimplemented and is the next item to define.
+- **Reported delivery:** the code chat installed and activated Husky 9.1.7 and lint-staged 16.4.0. `.husky/pre-commit` runs ESLint only on supported staged files; documentation-only changes skip lint. `core.hooksPath` is `.husky/_`; Node and pnpm must be available in the environment.
+- **Reported verification:** `pnpm lint` and seven fixture scenarios passed, including error blocking, partial staging preservation, ignored files, and paths with spaces. No real staging, commits, or pushes occurred; HEAD, the index, `AGENTS.md`, and the journal were preserved by the executor. This checkpoint was then added only to the journal working tree.
+
+## 2026-10-19, 18:22 — Sequential pre-push checks
+
+- **Decision and reported delivery:** the user specified the strict sequence typecheck, lint, then tests. The code chat implemented `.husky/pre-push` with `pnpm typecheck && pnpm lint && pnpm test` and updated `docs/testing.md`.
+- **Reported verification:** all three real checks passed (one test), with only a non-blocking Vite warning. Fixture checks confirmed that failure at each step blocks subsequent steps. Pre-commit, HEAD, and the index were preserved; no build, commit, or push was performed.
+- **Execution scope:** the hook checks the current working tree and requires Node and pnpm in PATH. This journal checkpoint was added only to the working tree.

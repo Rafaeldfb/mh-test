@@ -14,7 +14,7 @@ These references describe the inspected starter, not an approved future implemen
 
 ## Paths in repository content
 
-Do not expose personal directory structures in journals, documentation, or other shareable artifacts. Use project-relative paths or, when a root is needed, the illustrative `/HM-test` root. Do not include personal absolute paths, ancestor directory prefixes, or usernames in repository content. Real local paths may be used internally to run tools, but must not be copied into artifacts.
+Do not expose personal directory structures in journals, documentation, or other shareable artifacts. Use project-relative paths or, when a root is needed, the illustrative `/mh-test` root. Do not include personal absolute paths, ancestor directory prefixes, or usernames in repository content. Real local paths may be used internally to run tools, but must not be copied into artifacts.
 
 ## Code comments
 
