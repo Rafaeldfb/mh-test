@@ -133,3 +133,26 @@ Time zone: America/Sao_Paulo (UTC−03:00).
 - **Approved outcome:** the coordinator approved the revised two-commit plan. The executor created `9557c96` — “Configure TypeScript 6 linting and Git hooks” and `6501a7d` — “Update project naming and preparation journal”. Both ran the active pre-commit hook successfully: ESLint passed for the first; the second contained no applicable code files.
 - **Reported validation:** a real local `git hook run pre-push` passed typecheck, lint, and tests in order (one test, exit 0), without a remote push or build. The executor checked trees, indexes, files, and stashes. The two commits and a clean working tree were also confirmed before this journal update.
 - **Pending journal change:** this checkpoint remains uncommitted in the working tree after those commits; no additional staging, commit, or push was performed.
+
+## 2026-10-19, 18:31 — Tooling push completed; quality gates discussion pending
+
+- **Decision and authorization:** after an explanation of the `typecheck` script's equivalence to `tsc --noEmit` and the `&&` sequence, the user retained the script, staged the journal, and authorized auto-commit with coordinator approval and a push if checks passed.
+- **Reported outcome:** `72f82ab` — “Record tooling commits and hook validation” was created and pushed alongside `9557c96` and `6501a7d`. Pre-commit passed, and the actual push ran typecheck, lint, and tests successfully (one test). The executor reported `main` and `origin/main` at zero ahead/behind and a clean working tree before this entry.
+- **Coordination boundary:** the user introduced quality gates but explicitly asked the coordinator to wait until the explanation was complete before researching or delegating. No quality-gates research was started or delegated.
+- **Pending local record:** this checkpoint remains only in the working tree, without additional staging, commits, or pushes, avoiding a journal/commit loop.
+
+## 2026-10-19, 18:34 — Manual quality gates documented
+
+- **Request and reported delivery:** the user defined quality gates as concise guidance for code generation and review, covering at least file size, function size, and cyclomatic complexity. A subagent researched official ESLint sources and proposed proportional limits; the documentation chat created `docs/quality-gates.md` (26 lines), linked from `AGENTS.md` and `docs/code-patterns.md`.
+- **Local policy:** file size target 200/max 300 lines; function size target 40/max 60 lines (JSX-heavy max 100); classic cyclomatic complexity target 5/max 10. Correctness includes lint, types, behavior, and relevant focused tests. Line counts exclude blank/comment-only lines; generated files, dependencies, and lockfiles are excluded. Exceptions require justification; avoid artificial fragmentation.
+- **Scope and reported verification:** these are manual guidelines, not automatic ESLint enforcement. Tooling and hooks were unchanged. The executor reviewed links, consistency, privacy, and whitespace, without tests, builds, installation, staging, or commits. This journal entry preserves prior local changes and remains in the working tree.
+
+## 2026-10-19, 18:35 — Clean Code guidance integrated
+
+- **Decision and reported delivery:** the user preferred Clean Code guidance within `docs/quality-gates.md`, rather than a separate section in code patterns. The documentation chat added five principles: clear names, cohesive responsibilities, pure calculations and explicit effects, explicit states, and simplicity with justified abstractions. Existing metrics were preserved; the document now has 36 lines.
+- **References and scope:** the `AGENTS.md` reference now includes readability guidance for writing and reviewing code; `docs/code-patterns.md` links to it without duplicating content. These remain manual guidelines, with no tooling or code changes, tests, or commits. This checkpoint was added only to the working tree.
+
+## 2026-10-19, 18:37 — Guidelines scope finalized
+
+- **Decision:** the user explicitly chose not to add a SOLID checklist to the quality gates, considering the existing guidelines sufficient and proportional to the take-home challenge.
+- **Authorization and pending execution:** the user authorized the documentation auto-commit, hook checks, and push workflow, with this journal update completed before its snapshot is taken. Commit and push outcomes are still pending; this entry was added only to the working tree.

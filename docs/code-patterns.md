@@ -2,6 +2,8 @@
 
 These are observed conventions in the small starter, not a requirement to introduce more layers.
 
+Apply [Quality gates](quality-gates.md) when writing or reviewing code for local size, complexity, and correctness criteria.
+
 - Source uses TypeScript, ES module imports, double quotes, semicolons, and two-space indentation. ESLint uses a flat configuration in `eslint.config.js`; no formatter is configured.
 - The pre-commit hook checks staged code with ESLint and never applies automatic fixes; see [Testing](testing.md#pre-commit).
 - React components are functions in `.tsx` files with named exports. `App` uses `useState` for a controlled question input; `main.tsx` mounts it inside `StrictMode`.

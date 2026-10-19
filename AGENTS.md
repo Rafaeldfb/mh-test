@@ -6,6 +6,7 @@ Start with [README.md](README.md), the source of challenge requirements and deli
 
 - [Architecture](docs/architecture.md) for stack, file structure, execution boundaries, and data flow; read before technical decisions or locating responsibilities.
 - [Code patterns](docs/code-patterns.md) for implementation conventions; read when writing or refactoring code.
+- [Quality gates](docs/quality-gates.md) for size, complexity, correctness, and readability guidelines; read when writing or reviewing code.
 - [Design](docs/design.md) for existing styles and unresolved presentation choices; read when changing the UI.
 - [Testing](docs/testing.md) for commands, coverage, and verification limits; read when testing or validating changes.
 - [Local auto-commit skill](.agents/skills/auto-commit/SKILL.md) for planning and committing staged changes; read when the user requests staged commits.
