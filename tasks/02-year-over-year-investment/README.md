@@ -26,10 +26,11 @@ Read the [confirmed design](design.md), [data-policy brief](decision-brief.md), 
 
 ## Review and validation results
 
+- [External-review adjudication and fixes](review-decisions.md): accepted minimal improvements implemented and clean-reviewed; latest checks pass 61 tests, typecheck and lint. Deferred policy/harness items remain outside scope.
 - [01 data evidence](deliverables/01-comparison-data.md#execution-and-review-evidence): safe unknown history, pure fractional comparisons, exact percent formatting and preserved integrity. Fixture: TV +3,23%, YouTube +66,67%, Meta +25,00%, Google Search −7,69%; TikTok retains R$250.000,00 with unavailable history.
 - [02 card evidence](deliverables/02-comparison-card.md#execution-and-review-evidence): grouped chart, exact values/list, dates, responsive axes and bounded tooltip correction.
 - [03 flow/manual evidence](deliverables/03-comparison-flow.md#execution-and-review-evidence): hidden reserved invitation, keyboard focus, skeleton/reveal, duplicate guard, stale-work cleanup/reset, responsive clearance and unavailable-history isolation.
-- Each delivery reviewed sequentially by gpt-6.1-sol high; no unresolved findings. Typecheck/lint and all 44 tests across eight files pass. Measured size/function/classic-complexity maxima pass; soft-target rationales are in delivery records.
+- Each delivery reviewed sequentially by gpt-6.1-sol high; no unresolved findings. Initial delivery checks passed typecheck/lint and 44 tests across eight files; the linked external-review follow-up records the latest 61-test result. Measured size/function/classic-complexity maxima pass; soft-target rationales are in delivery records.
 - Manual Chromium widths: 1440, 768, 720, 390, 320px; keyboard, reduced motion, malformed history, zero/equal/−100%, API failure/retry and cleanup verified. Screen-reader speech, physical mobile keyboard and other engines remain unverified. No build or browser-test harness.
 - No aggregate annual change, absolute difference, server/chat, dependencies, final DECISOES.md/submission screenshot or Git operations were added.
 

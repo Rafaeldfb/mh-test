@@ -11,3 +11,5 @@ Composer height is measured through ResizeObserver and reserved as bottom space,
 The [task design record](../tasks/01-render-dashboard/design.md) retains the confirmed direction and reference studies. Annual comparison remains Task 02 scope.
 
 Task 02 now implements the [confirmed comparison flow](../tasks/02-year-over-year-investment/design.md): reserved hidden invitation, instant scroll/focus to skeleton, local grouped-bar reveal and query reset. Bars are upright above 720px and sideways at/below it; exact values and unavailable-history explanations remain visible. See [manual evidence](../tasks/02-year-over-year-investment/deliverables/03-comparison-flow.md#execution-and-review-evidence).
+
+Task 02 review follow-up adds variation/unavailable reasons to a bounded tooltip anchored within the plot, plus nearby missing/invalid-history text. Channel headings contain only names; variation is separately labeled. Full date ranges remain in the header with short Atual/Anterior legend labels. Plot and skeleton share responsive heights, including channel count on mobile.

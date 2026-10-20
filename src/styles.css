@@ -66,7 +66,7 @@ h2 { overflow-wrap: anywhere; margin: 0 0 16px; font-size: 20px; font-weight: 65
 .comparison-offer .eyebrow { margin-bottom: 4px; }
 .comparison-offer button { flex-shrink: 0; }
 .comparison-card h2 { scroll-margin-top: 24px; }
-.comparison-skeleton { height: 340px; }
+.comparison-skeleton, .comparison-plot { height: 340px; }
 .comparison-plot { width: 100%; min-width: 0; }
 .comparison-legend { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0; list-style: none; font-size: 12px; }
 .comparison-legend li { display: flex; align-items: center; gap: 8px; }
@@ -75,7 +75,7 @@ h2 { overflow-wrap: anywhere; margin: 0 0 16px; font-size: 20px; font-weight: 65
 .comparison-values { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; list-style: none; padding: 0; }
 .comparison-values li { border-top: 1px solid #e9eae4; padding-top: 12px; min-width: 0; overflow-wrap: anywhere; }
 .comparison-values h3 { margin: 0; font-size: 14px; }
-.comparison-values h3 span { display: block; margin-top: 4px; font-size: 13px; font-weight: 500; }
+
 .comparison-values p { font-size: 12px; margin-bottom: 0; font-variant-numeric: tabular-nums; }
 .pie-legend { list-style: none; padding: 0; margin: 8px 0 20px; }
 .pie-legend li { display: flex; align-items: center; gap: 8px; margin: 10px 0; font-size: 13px; }
@@ -91,6 +91,13 @@ td { text-align: right; font-variant-numeric: tabular-nums; }
   .chart-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .chart-card { padding: 16px; }
   .comparison-values { grid-template-columns: minmax(0, 1fr); }
-  .comparison-skeleton { height: 500px; }
+  .comparison-skeleton, .comparison-plot { height: var(--comparison-mobile-height); }
   .comparison-offer { flex-direction: column; align-items: stretch; padding: 16px; gap: 16px; }
+}
+
+.comparison-unavailable { padding-left: 18px; font-size: 12px; color: #62645c; }
+.comparison-tooltip { width: 300px; padding: 12px; border: 1px solid #deded8; background: #fff; font-size: 12px; white-space: normal; overflow-wrap: anywhere; }
+.comparison-tooltip p { margin: 8px 0 0; }
+@media (max-width: 720px) {
+  .comparison-tooltip { width: 170px; }
 }

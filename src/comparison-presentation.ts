@@ -1,4 +1,5 @@
-import { formatDate } from "./format";
+import { formatDate, formatInvestmentChange } from "./format";
+import type { InvestmentChange } from "./investment-comparison";
 import type { Period } from "./types";
 
 function priorYear(date: string): string {
@@ -15,4 +16,14 @@ export function comparisonPeriods(period: Period) {
     current: `${formatDate(period.start)} a ${formatDate(period.end)}`,
     prior: `${formatDate(priorYear(period.start))} a ${formatDate(priorYear(period.end))}`,
   };
+}
+
+export function investmentChangeLabel(change: InvestmentChange): string {
+  switch (change.kind) {
+    case "available": return formatInvestmentChange(change.fraction);
+    case "missing": return "Comparação indisponível: histórico não informado.";
+    case "invalid": return "Comparação indisponível: histórico inválido.";
+    case "zero": return "Variação percentual indisponível: investimento anterior igual a zero.";
+    case "overflow": return "Variação percentual indisponível: resultado fora do limite numérico.";
+  }
 }

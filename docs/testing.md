@@ -34,7 +34,7 @@ The hook uses the existing Husky activation and requires Node and pnpm in the pu
 
 ## Existing coverage
 
-`src/chart-data.test.ts` checks fixture totals, five channel/seven vehicle points, supplied ROI, invalid denominators, and immutability. `src/api.test.ts` checks transport errors, consumed contracts (including chart-discriminant coercion), signal forwarding/cancellation, fresh retry, parallel completion, and consistency. `src/data-integrity.test.ts`, `src/dashboard-messages.test.ts` and `src/format.test.ts` add focused external-review regressions for reconciliation, contextual messages and localized ROI ticks. Task 02 adds historical classification/comparison/formatting, parser preservation and prior-year date-label tests. There are 44 tests across 8 files.
+`src/chart-data.test.ts` checks fixture totals, five channel/seven vehicle points, supplied ROI, invalid denominators, and immutability. `src/api.test.ts` checks transport errors, consumed contracts (including chart-discriminant coercion), signal forwarding/cancellation, fresh retry, parallel completion, and consistency. `src/data-integrity.test.ts`, `src/dashboard-messages.test.ts` and `src/format.test.ts` add focused external-review regressions for reconciliation, contextual messages and localized ROI ticks. Task 02 adds historical classification/comparison/formatting, parser preservation and prior-year date-label tests. There are 61 tests across 8 files after the Task 02 review follow-up: named parser/client cases separate non-finite inputs from JSON transport, formatter cases live in format.test.ts, and presentation labels have focused coverage.
 
 No hook/DOM/integration/E2E suite is included. Browser-only inspection covered states, endpoint failures/retry, StrictMode lifecycle, keyboard access, responsive clearance, and reduced motion; see [Task 01 evidence](../tasks/01-render-dashboard/README.md#review-and-validation-results) and [external-review follow-up](../tasks/01-render-dashboard/review-decisions.md#validation). These checks are manual evidence, not unit coverage.
 
@@ -46,4 +46,6 @@ Task 01: `pnpm typecheck`, `pnpm lint`, and `pnpm test` passed after the externa
 
 Vitest still emits the existing future native-loader advisory for the Vite config's extensionless mock import and JSON imports without attributes. It does not fail checks.
 
-Task 02: sequential clean reviews, measured gates, 44 passing tests, typecheck/lint and manual responsive/lifecycle evidence are recorded in [its task record](../tasks/02-year-over-year-investment/README.md#review-and-validation-results). No build or UI test harness.
+Task 02: sequential clean reviews, measured gates, 61 passing tests, typecheck/lint and manual responsive/lifecycle evidence are recorded in [its task record](../tasks/02-year-over-year-investment/README.md#review-and-validation-results). No build or UI test harness.
+
+Task 02 accepted-fix validation and responsive tooltip/skeleton evidence: [external-review follow-up](../tasks/02-year-over-year-investment/review-decisions.md#implementation-follow-up--2026-10-19).

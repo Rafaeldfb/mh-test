@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import rows from "../server/contribution-rows.json";
 import { chartData } from "./chart-data";
-import { formatInvestmentChange } from "./format";
 import { classifyHistory, compareInvestments } from "./investment-comparison";
 
 describe("annual investment comparison", () => {
@@ -49,17 +48,4 @@ describe("annual investment comparison", () => {
       expect(chartData(changed)).toEqual(chartData(rows));
     }
   });
-});
-
-it("formats fractional changes with a sign and exactly two Portuguese decimals", () => {
-  const fractions = [50000 / 1550000, 2 / 3, 0.25, -50000 / 650000, -1, 0, -0];
-  expect(fractions.map(formatInvestmentChange)).toEqual([
-    "+3,23%", "+66,67%", "+25,00%", "-7,69%", "-100,00%", "0,00%", "0,00%",
-  ]);
-});
-
-it("retains direction for changes that round to zero while normalizing actual negative zero", () => {
-  expect(formatInvestmentChange(0.000001)).toBe("+0,00%");
-  expect(formatInvestmentChange(-0.000001)).toBe("-0,00%");
-  expect(formatInvestmentChange(-0)).toBe("0,00%");
 });

@@ -6,25 +6,25 @@ import { parseData } from "./api-validation";
 
 afterEach(() => vi.unstubAllGlobals());
 
-it("preserves unknown or absent history while loading a valid dashboard", async () => {
-  for (const baseline of [null, undefined, "100", -1, Infinity, NaN]) {
+it.each([null, undefined, "100", -1, Infinity, NaN])(
+  "preserves historical input %s directly at the parser boundary", (baseline) => {
     const changed = rows.map((row, index) => index === 0 ? { ...row, baseline } : row);
-    // Direct decoding preserves non-finite inputs, unlike JSON serialization.
     expect(parseData({ period: specification.period, rows: changed }).rows[0].baseline).toBe(baseline);
-    const data = { period: specification.period, rows: changed };
-    vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve(new Response(JSON.stringify(
-      url.startsWith("/api/agent") ? { ...specification, question: "test" } : data,
-    )))));
-    const received = (await loadDashboard("test")).data.rows[0].baseline;
-    expect(received).toBe(typeof baseline === "number" && !Number.isFinite(baseline) ? null : baseline);
-  }
+  },
+);
+
+it.each([null, undefined, "100", -1])("loads JSON-representable historical input %s", async (baseline) => {
+  const changed = rows.map((row, index) => index === 0 ? { ...row, baseline } : row);
+  const data = { period: specification.period, rows: changed };
+  vi.stubGlobal("fetch", vi.fn((url: string) => Promise.resolve(new Response(JSON.stringify(
+    url.startsWith("/api/agent") ? { ...specification, question: "test" } : data,
+  )))));
+  expect((await loadDashboard("test")).data.rows[0].baseline).toBe(baseline);
 });
 
-it("still rejects malformed current investment and contribution", () => {
-  for (const field of ["investment", "contribution"]) {
-    for (const value of ["100", NaN, Infinity, undefined]) {
-      const changed = [{ ...rows[0], [field]: value }, ...rows.slice(1)];
-      expect(() => parseData({ period: specification.period, rows: changed })).toThrow();
-    }
-  }
+const invalidCurrentCases = ["investment", "contribution"].flatMap((field) =>
+  ["100", NaN, Infinity, undefined].map((value) => ({ field, value })));
+it.each(invalidCurrentCases)("rejects malformed current $field: $value", ({ field, value }) => {
+  const changed = [{ ...rows[0], [field]: value }, ...rows.slice(1)];
+  expect(() => parseData({ period: specification.period, rows: changed })).toThrow();
 });

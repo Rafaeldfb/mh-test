@@ -17,7 +17,9 @@ export function formatDate(value: string) {
 const investmentChange = new Intl.NumberFormat("pt-BR", {
   style: "percent", minimumFractionDigits: 2, maximumFractionDigits: 2, signDisplay: "always",
 });
+const unchangedInvestment = new Intl.NumberFormat("pt-BR", {
+  style: "percent", minimumFractionDigits: 2, maximumFractionDigits: 2,
+}).format(0);
 /** Receives a fraction: 0.25 means +25,00%. */
-const unchangedInvestment = investmentChange.format(0).slice(1);
 export const formatInvestmentChange = (fraction: number) => fraction === 0
   ? unchangedInvestment : investmentChange.format(fraction);
