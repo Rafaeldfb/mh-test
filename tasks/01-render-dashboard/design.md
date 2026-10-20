@@ -1,5 +1,7 @@
 # Task 01 design direction
 
+Current display override: the user's [later instruction](../02-year-over-year-investment/design.md#comparison-content-and-constraints) supersedes the earlier requirement below to display source table/model or keep a source footer visible. Hide that technical text in the UI; preserve API metadata/contracts, validation, and documented provenance. Source-related execution evidence below describes the earlier implementation, not a requirement to restore it. Final-content clearance above the composer still applies.
+
 Status: Implemented under user authorization. See [execution evidence](README.md#review-and-validation-results) for adopted details and verification limits. Earlier proposals below are retained as design context.
 
 The top navbar, fixed bottom composer, workspace above, loading skeletons, and gradual title/chart reveal after both responses succeed are the chosen primary approach for Task 01. This direction is implemented; the earlier top-form layout is retained only in historical studies.

@@ -16,15 +16,6 @@ export function DashboardMetadata({ response }: { response: DashboardResponse })
   );
 }
 
-export function DashboardSource({ response }: { response: DashboardResponse }) {
-  return (
-    <footer className="source">
-      <p>Fonte: <code>{response.agent.source.table}</code></p>
-      <p>Modelo: <code>{response.agent.source.model}</code></p>
-    </footer>
-  );
-}
-
 export function DashboardAnnouncements({ state }: { state: DashboardState }) {
   const status = {
     idle: "",
@@ -71,7 +62,6 @@ export function DashboardWorkspace({ state, retry }: { state: DashboardState; re
     <section aria-label="Resultado da análise">
       <DashboardMetadata response={state.response} />
       <DashboardCharts charts={state.response.agent.charts} rows={state.response.data.rows} />
-      <DashboardSource response={state.response} />
     </section>
   );
 }

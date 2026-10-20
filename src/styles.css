@@ -15,7 +15,7 @@ button:disabled { opacity: .55; cursor: default; }
 .navbar { display: flex; align-items: center; justify-content: space-between; max-width: 1008px; margin: auto; padding: 24px; border-bottom: 1px solid #deded8; }
 .brand { font-weight: 800; font-size: 23px; letter-spacing: -.8px; }
 .brand-dot { color: #447360; }
-.navbar-note, .period, .source { color: #62645c; font-size: 13px; }
+.navbar-note, .period { color: #62645c; font-size: 13px; }
 .page { max-width: 1008px; margin: 0 auto; padding: 40px 24px calc(var(--composer-height) + 40px); }
 h1 { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.2; letter-spacing: -1px; margin: 12px 0 18px; }
 p { line-height: 1.65; }
@@ -23,8 +23,6 @@ p { line-height: 1.65; }
 .summary { max-width: 780px; font-size: 17px; color: #474b43; }
 .empty-state { padding: 60px 0; max-width: 680px; }
 .empty-state > p:last-child { color: #62645c; }
-.source { margin-top: 28px; overflow-wrap: anywhere; }
-.source p { margin: 4px 0; }
 .composer-shell { position: fixed; z-index: 10; bottom: 0; left: 0; width: 100%; padding: 16px 24px calc(16px + env(safe-area-inset-bottom)); background: linear-gradient(transparent, #f6f6f4 22%); }
 .ask { max-width: 960px; margin: auto; padding: 14px 16px; background: #fff; border: 1px solid #deded8; border-radius: 8px; box-shadow: 0 8px 36px #1a1a1a14; }
 .ask label { display: block; font-size: 12px; font-weight: 650; color: #62645c; margin-bottom: 8px; }

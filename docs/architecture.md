@@ -54,7 +54,7 @@ These are responsibility boundaries, not mandatory files per function, new folde
 
 `App` invokes `useDashboard` on submit/retry. The hook owns attempt identity, cancellation, and idle/loading/success/error state. `loadDashboard` in `api.ts` starts both requests and returns one pair after runtime validation in `api-validation.ts`, matching periods and echoed question. Data parsing also calls the pure `data-integrity.ts` check: one total per channel and reconciliation of investment/contribution with vehicle details within one rounded cent. An inconsistency rejects the pair with channel context. The hook aborts siblings on failure and invalidates pending work on unmount.
 
-`DashboardWorkspace` renders states and metadata; `DashboardCharts` consumes pure `chart-data.ts` points in API chart order. `format.ts` owns Portuguese display formatting; `useComposerClearance` measures the fixed bottom composer so source and charts remain scrollable above it. No cache, automatic retry, or general chart engine is included.
+`DashboardWorkspace` renders states and metadata; `DashboardCharts` consumes pure `chart-data.ts` points in API chart order. `format.ts` owns Portuguese display formatting; `useComposerClearance` measures the fixed bottom composer so final content and charts remain scrollable above it. The technical source/model footer is hidden under the [later user instruction](../tasks/02-year-over-year-investment/design.md#comparison-content-and-constraints); metadata/contracts and validation remain intact. No cache, automatic retry, or general chart engine is included.
 
 The endpoints implement these behaviors:
 

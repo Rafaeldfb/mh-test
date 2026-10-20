@@ -1,5 +1,7 @@
 # Task 01 implementation plan
 
+Current display override: the user's [later instruction](../02-year-over-year-investment/design.md#comparison-content-and-constraints) supersedes the earlier requirement below to display source table/model or keep a source footer visible. Hide that technical text in the UI; preserve API metadata/contracts, validation, and documented provenance. Source-related execution evidence below describes the earlier implementation, not a requirement to restore it. Final-content clearance above the composer still applies.
+
 Status: Complete. All four deliverables implemented sequentially, each with a clean gpt-6.1-sol high review before advancing. No Git actions performed.
 
 ## Scope and sequence
