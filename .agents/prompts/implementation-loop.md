@@ -1,4 +1,9 @@
-/goal Implement all deliverables, one at a time, using the implementation and review loop below.
+/goal
+
+plan:
+deliverables:
+
+Implement all deliverables, one at a time, using the implementation and review loop below.
 
 ## Inputs
 

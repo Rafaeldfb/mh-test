@@ -10,20 +10,23 @@ Add each channel's investment variation against the same period in the previous 
 
 - The dashboard shows an understandable prior-year investment comparison for every supplied channel, with the comparison period identified.
 - Values match the documented formula and channel-level row treatment; total and detail rows are not double-counted.
-- Missing baselines, including TikTok's `null`, are distinguished from zero and from a measured change. Any zero-baseline case follows a documented policy without displaying an invalid numeric result.
+- Valid, missing, invalid, and zero historical amounts remain distinct under the [confirmed policy](decision-brief.md#confirmed-calculation-and-historical-data-policy). Unavailable history affects only that channel's comparison, retaining its valid current investment and other charts; API and essential-contract failures keep existing error/retry behavior.
 - Labels and formatting let the manager interpret the change; data limitations and chosen handling are explained.
+- Use grouped bars by marketing channel: vertical on desktop/tablet, horizontal on mobile, with legible current/prior-year amounts and signed `pt-BR` percentages to two decimal places. Missing/invalid history has no historical bar or percentage; zero history is a valid amount but prevents percentage calculation.
+- Hide internal dataset/model text below the cards while preserving metadata/contracts and documentation. This explicit user change supersedes earlier Task 01 source-display acceptance; it does not require deleting API fields.
+- After the three existing charts, the agent offers the comparison with “Comparar investimentos”; activation scrolls to a skeleton and reveals the new card with current/prior-year investment and percentage change. Follow the [confirmed design](design.md), including reduced motion, accessible focus, and final composer clearance.
+- A new query discards comparison and pending transitions; its invitation reappears only when the new dashboard is ready. Cleanup also covers unmount. Hide the activated invitation while reserving its space and preventing duplicate activation.
 
 ## Pending decisions
 
-Read the [decision brief](decision-brief.md) for fixture facts, options, impacts, and proposed defaults, and [research](research.md) for implementation investigation. These do not approve a Task 02 UI or authorize implementation.
+Read the [confirmed design](design.md), [data-policy brief](decision-brief.md), and [research](research.md) before later planning. Read the [unit testing strategy](testing-strategy.md) for planned coverage and limits. The [implementation plan](plan.md) indexes three sequential deliverables with technical defaults and review gates. These documents prepare execution; no implementation or tests have started.
 
-- Choose the display and formula: absolute change (`investment - baseline`), percentage change (`(investment - baseline) / baseline * 100` for nonzero baseline), or both. These are candidates, not an approved policy.
-- Decide how to communicate missing and zero baselines, including TikTok; do not assume missing means zero.
-- Reuse or align with Task 01's total/detail treatment and decide placement/formatting within its panel.
+- The plan selects simple historical typing/classification, fractional change units, a responsive boundary, and cleanup/focus/transition defaults. Exact sizing and wording remain delegable within the confirmed policies.
+- The plan omits optional absolute currency change to keep the first implementation small. See [v2 references](design.md#visual-state-references) for visual context; confirmed text rules govern responsive behavior and data handling.
 
 ## Review and validation results
 
-- Review: Not performed; findings and resolutions not yet recorded.
+- Planning review: Coordinator review completed; see [plan](plan.md). Implementation review has not been performed.
 - Validation: Not run; calculation checks, missing/zero-baseline scenarios, and UI results not yet recorded.
 - Acceptance evidence: None yet.
 

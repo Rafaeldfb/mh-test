@@ -261,3 +261,25 @@ Time zone: America/Sao_Paulo (UTC−03:00).
 ## 2026-10-19 — Adjudication accepted and execution authorized
 
 The user reviewed the main agent's judgment, agreed with all points, and authorized execution according to that judgment.
+
+## 2026-10-19, 20:53 — Task 02 follow-up interaction chosen
+
+The user chose a suggested agent follow-up: a bubble after the charts offers the comparison; clicking it automatically scrolls to a new card that shows a skeleton followed by the result. The user explicitly rejected a table and selected grouped bars per channel, with adjacent bars for current investment and the same period of the previous year, preserving the graphical experience. The user also requested removing the technical source/model/dataset text beneath the cards. This is the user's product/UX choice, not a literal requirement or a new real capability of the mock server.
+
+The user authorized recording the direction in the [decision brief](tasks/02-year-over-year-investment/decision-brief.md) and [design](tasks/02-year-over-year-investment/design.md), and generating a visual sequence. Earlier table mockups are superseded; the Designer is generating replacements and the supporting documents are being corrected separately. Implementation is not reported complete.
+
+## 2026-10-19, 21:41 — Task 02 comparison behavior decided
+
+The user approved treating missing/invalid history as an unavailable comparison only for the affected channel, preserving current investment and other charts; zero history gets a specific explanation that the percentage cannot be calculated. Actual API failures retain error/retry behavior. A new query clears the comparison and pending transition; a new success offers the invitation again.
+
+The user chose vertical grouped bars on desktop/tablet, horizontal bars on mobile, percentages with two decimal places, and an invitation bubble that disappears while preserving its space. Scroll, focus, and skeleton details are delegated to the plan, without a mandatory artificial delay. These decisions belong in the [design](tasks/02-year-over-year-investment/design.md) and [decision brief](tasks/02-year-over-year-investment/decision-brief.md), being updated separately. Test strategy, plan, and deliverables will be addressed later; this step does not authorize implementation.
+
+## 2026-10-19, 21:56 — Task 02 unit-test strategy requested
+
+The user asked the code agent to document a unit-test strategy based on the approved Task 02 decisions in [testing-strategy.md](tasks/02-year-over-year-investment/testing-strategy.md), explicitly without implementing tests yet. The code chat is preparing that document. This is documentation only: no executed coverage, integration approval, or start of implementation planning or development is implied.
+
+## 2026-10-19, 22:05 — Task 02 planning and critical review requested
+
+The user asked the responsible agent to create a [plan](tasks/02-year-over-year-investment/plan.md) and deliverables following the Task 01 approach, emphasizing simplicity, reuse, and autonomy over technical details. The user also requested critical review by the coordinator and follow-up improvements where needed. The plan and three deliverables were saved, covering data/formatting, the grouped-bar card, and invitation/lifecycle behavior.
+
+The coordinator requested clarification of visual orientation versus Recharts terminology and alignment of research options with the selected defaults; the agent is finalizing those adjustments. Implementation has not started, and final review approval has not been recorded.
