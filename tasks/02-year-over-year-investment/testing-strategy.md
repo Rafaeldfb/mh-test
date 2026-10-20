@@ -1,6 +1,8 @@
 # Task 02 unit testing strategy
 
-Status: Plan only; no tests implemented or executed here. Use existing Vitest for unit tests, with no new dependencies or UI harness. The [task acceptance](README.md#observable-acceptance), [confirmed historical policy](decision-brief.md#confirmed-calculation-and-historical-data-policy), and [design](design.md) govern expectations; this strategy does not authorize implementation or create an implementation plan.
+Execution update: Task 02 is implemented and clean-reviewed; see [current results](README.md#review-and-validation-results). The preparation notes below retain their original planning context.
+
+Preparation snapshot: Plan only; no tests implemented or executed here. Use existing Vitest for unit tests, with no new dependencies or UI harness. The [task acceptance](README.md#observable-acceptance), [confirmed historical policy](decision-brief.md#confirmed-calculation-and-historical-data-policy), and [design](design.md) govern expectations; this strategy does not authorize implementation or create an implementation plan.
 
 ## Existing baseline and numeric contract
 

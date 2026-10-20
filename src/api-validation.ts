@@ -70,8 +70,8 @@ export function parseData(value: unknown): DataResponse {
       vehicle: r.vehicle === null ? null : text(r.vehicle),
       investment: amount(r.investment),
       contribution: amount(r.contribution),
-      // Annual baselines are not consumed by Task 01.
-      baseline: r.baseline as number | null,
+      // Historical quality degrades only the annual comparison.
+      baseline: r.baseline,
     };
   });
   validateChannelTotals(rows);

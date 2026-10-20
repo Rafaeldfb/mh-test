@@ -1,6 +1,8 @@
 # Task 02 design direction
 
-Status: User-confirmed grouped-bar direction; Task 02 not implemented. Technical transition defaults are selected in the [plan](plan.md#technical-defaults-for-execution); exact implementation parameters remain delegable. This record prepares implementation; it does not authorize code changes.
+Execution update: Task 02 is implemented and clean-reviewed; see [current results](README.md#review-and-validation-results). The preparation notes below retain their original planning context.
+
+Preparation snapshot: User-confirmed grouped-bar direction; Task 02 not implemented. Technical transition defaults are selected in the [plan](plan.md#technical-defaults-for-execution); exact implementation parameters remain delegable. This record prepares implementation; it does not authorize code changes.
 
 ## Product rationale
 

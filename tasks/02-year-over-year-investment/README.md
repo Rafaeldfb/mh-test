@@ -1,6 +1,6 @@
 # 02 — Year-over-year investment by channel
 
-Status: Not started
+Status: Complete; all three deliveries implemented and clean-reviewed
 
 ## Objective and scope
 
@@ -17,17 +17,20 @@ Add each channel's investment variation against the same period in the previous 
 - After the three existing charts, the agent offers the comparison with “Comparar investimentos”; activation scrolls to a skeleton and reveals the new card with current/prior-year investment and percentage change. Follow the [confirmed design](design.md), including reduced motion, accessible focus, and final composer clearance.
 - A new query discards comparison and pending transitions; its invitation reappears only when the new dashboard is ready. Cleanup also covers unmount. Hide the activated invitation while reserving its space and preventing duplicate activation.
 
-## Pending decisions
+## Decisions
 
-Read the [confirmed design](design.md), [data-policy brief](decision-brief.md), and [research](research.md) before later planning. Read the [unit testing strategy](testing-strategy.md) for planned coverage and limits. The [implementation plan](plan.md) indexes three sequential deliverables with technical defaults and review gates. These documents prepare execution; no implementation or tests have started.
+Read the [confirmed design](design.md), [data-policy brief](decision-brief.md), and [research](research.md) before later planning. Read the [unit testing strategy](testing-strategy.md) for planned coverage and limits. The [implementation plan](plan.md) indexes three sequential deliverables with technical defaults and review gates. Execution results are linked below; the research and strategy retain their planning context.
 
 - The plan selects simple historical typing/classification, fractional change units, a responsive boundary, and cleanup/focus/transition defaults. Exact sizing and wording remain delegable within the confirmed policies.
 - The plan omits optional absolute currency change to keep the first implementation small. See [v2 references](design.md#visual-state-references) for visual context; confirmed text rules govern responsive behavior and data handling.
 
 ## Review and validation results
 
-- Planning review: Coordinator review completed; see [plan](plan.md). Implementation review has not been performed.
-- Validation: Not run; calculation checks, missing/zero-baseline scenarios, and UI results not yet recorded.
-- Acceptance evidence: None yet.
+- [01 data evidence](deliverables/01-comparison-data.md#execution-and-review-evidence): safe unknown history, pure fractional comparisons, exact percent formatting and preserved integrity. Fixture: TV +3,23%, YouTube +66,67%, Meta +25,00%, Google Search −7,69%; TikTok retains R$250.000,00 with unavailable history.
+- [02 card evidence](deliverables/02-comparison-card.md#execution-and-review-evidence): grouped chart, exact values/list, dates, responsive axes and bounded tooltip correction.
+- [03 flow/manual evidence](deliverables/03-comparison-flow.md#execution-and-review-evidence): hidden reserved invitation, keyboard focus, skeleton/reveal, duplicate guard, stale-work cleanup/reset, responsive clearance and unavailable-history isolation.
+- Each delivery reviewed sequentially by gpt-6.1-sol high; no unresolved findings. Typecheck/lint and all 44 tests across eight files pass. Measured size/function/classic-complexity maxima pass; soft-target rationales are in delivery records.
+- Manual Chromium widths: 1440, 768, 720, 390, 320px; keyboard, reduced motion, malformed history, zero/equal/−100%, API failure/retry and cleanup verified. Screen-reader speech, physical mobile keyboard and other engines remain unverified. No build or browser-test harness.
+- No aggregate annual change, absolute difference, server/chat, dependencies, final DECISOES.md/submission screenshot or Git operations were added.
 
 Use the [task procedure and references](../README.md) for implementation/review guidance and [Architecture](../../docs/architecture.md#supplied-contracts-and-adopted-handling) for fixture constraints.

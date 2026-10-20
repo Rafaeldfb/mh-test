@@ -1,6 +1,8 @@
 # Year-over-year investment decision brief
 
-Status: User-confirmed data and interaction policies; Task 02 not started. See [design](design.md) for presentation and lifecycle decisions. The [plan defaults](plan.md#technical-defaults-for-execution) now resolve technical modeling and execution choices; this record does not authorize implementation.
+Execution update: Task 02 is implemented and clean-reviewed; see [current results](README.md#review-and-validation-results). The preparation notes below retain their original planning context.
+
+Preparation snapshot: User-confirmed data and interaction policies; Task 02 not started. See [design](design.md) for presentation and lifecycle decisions. The [plan defaults](plan.md#technical-defaults-for-execution) now resolve technical modeling and execution choices; this record does not authorize implementation.
 
 ## Requirement and verified facts
 
@@ -34,4 +36,4 @@ The user rejected the table and chose grouped bars for continuity with the dashb
 
 Use signed changes and explicit period labels; color must not imply that increased spending is good or decreased spending is bad. Preserve Portuguese formatting and the [design constraints](design.md#comparison-content-and-constraints), including composer clearance. Hide technical dataset/model text below the cards while retaining source metadata/contracts and documented provenance. No change to the agent's three chart specifications is needed. See the current [v2 design references](design.md#visual-state-references).
 
-See [research](research.md) for implementation investigation and the [task record](README.md#pending-decisions) for decision tracking. No calculations, UI changes, tests, or runtime validation were implemented for this brief.
+See [research](research.md) for implementation investigation and the [task record](README.md#decisions) for decision tracking. No calculations, UI changes, tests, or runtime validation were implemented for this brief.

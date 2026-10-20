@@ -34,7 +34,7 @@ The hook uses the existing Husky activation and requires Node and pnpm in the pu
 
 ## Existing coverage
 
-`src/chart-data.test.ts` checks fixture totals, five channel/seven vehicle points, supplied ROI, invalid denominators, and immutability. `src/api.test.ts` checks transport errors, consumed contracts (including chart-discriminant coercion), signal forwarding/cancellation, fresh retry, parallel completion, and consistency. `src/data-integrity.test.ts`, `src/dashboard-messages.test.ts` and `src/format.test.ts` add focused external-review regressions for reconciliation, contextual messages and localized ROI ticks. There are 28 tests across 5 files.
+`src/chart-data.test.ts` checks fixture totals, five channel/seven vehicle points, supplied ROI, invalid denominators, and immutability. `src/api.test.ts` checks transport errors, consumed contracts (including chart-discriminant coercion), signal forwarding/cancellation, fresh retry, parallel completion, and consistency. `src/data-integrity.test.ts`, `src/dashboard-messages.test.ts` and `src/format.test.ts` add focused external-review regressions for reconciliation, contextual messages and localized ROI ticks. Task 02 adds historical classification/comparison/formatting, parser preservation and prior-year date-label tests. There are 44 tests across 8 files.
 
 No hook/DOM/integration/E2E suite is included. Browser-only inspection covered states, endpoint failures/retry, StrictMode lifecycle, keyboard access, responsive clearance, and reduced motion; see [Task 01 evidence](../tasks/01-render-dashboard/README.md#review-and-validation-results) and [external-review follow-up](../tasks/01-render-dashboard/review-decisions.md#validation). These checks are manual evidence, not unit coverage.
 
@@ -45,3 +45,5 @@ For manual failure checks during development, use the mock API's `fail=1` query 
 Task 01: `pnpm typecheck`, `pnpm lint`, and `pnpm test` passed after the external-review fixes (28 tests). No build was run. Deliverable records contain review outcomes and measured size/complexity, since normal lint does not enforce those gates.
 
 Vitest still emits the existing future native-loader advisory for the Vite config's extensionless mock import and JSON imports without attributes. It does not fail checks.
+
+Task 02: sequential clean reviews, measured gates, 44 passing tests, typecheck/lint and manual responsive/lifecycle evidence are recorded in [its task record](../tasks/02-year-over-year-investment/README.md#review-and-validation-results). No build or UI test harness.

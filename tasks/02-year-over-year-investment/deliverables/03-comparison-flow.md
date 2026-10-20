@@ -1,6 +1,6 @@
 # 03 — Offer, activation and lifecycle completion
 
-Status: Not started. Execute only after implementation authorization; follow the [plan handoff/review loop](../plan.md#execution-review-and-evidence).
+Status: Complete; implemented and clean-reviewed. Follow the [plan handoff/review loop](../plan.md#execution-review-and-evidence).
 
 ## Goal, dependencies and minimum reading
 
@@ -33,4 +33,17 @@ Out of scope: new images/dependencies, server/chat, aggregate variation, optiona
 
 ## Execution and review evidence
 
-Not executed. Record paths, lifecycle/cleanup implementation, actual unit/check/manual results, metrics, findings/dispositions and clean re-review; synchronize task/plan status and disclose remaining verification limits.
+Implemented `InvestmentComparisonFlow.tsx`, successful-workspace mounting and offer CSS. Offered/preparing/ready state uses a synchronous ref guard. Hidden offer retains its footprint and becomes inert, aria-hidden and disabled. Layout effect focuses the stable heading and scrolls instantly. Two cancellable frames permit skeleton paint; both callbacks check liveness, cleanup cancels frames and invalidates stale work. New query unmounts the child, including identical-question resubmission; new success restores the offer.
+
+Independent gpt-6.1-sol high review: no unresolved code findings. Typecheck/lint/full Vitest suite pass (44 tests / 8 files, including the final formatter edge regression). Measured ESLint gates: flow 47 code lines, component 43 lines (cohesive lifecycle and JSX, within React maximum), complexity 4; workspace 66 lines, largest function 33, complexity 4. No new scheduling abstraction or UI suite was introduced.
+
+Manual Chromium inspection against the real dev app:
+- Keyboard Enter activates; heading remains focused through ready state, instant scroll recorded. Held flow frames expose the real skeleton. Accepted offer visibility hidden, inert true, unchanged 92.19px desktop height. Activation adds no requests; duplicate activation produces one card.
+- Invoked retained stale first and second callbacks after new-query unmount: no reveal/focus/scroll; queued work cancelled. Same-text resubmission removes comparison and restores invitation only after success. StrictMode media-listener setup/cleanup observed, with all instrumented listeners balanced after reset (20 adds/20 removes including Recharts).
+- 1440/768px upright grouped bars; 720/390/320px sideways bars, five current/four historical fixture bars. No horizontal overflow; final card 43–56px above composer at maximum scroll. Visible precise values, exact signed percentages, period labels, and unavailable history checked. Chart keyboard support and text list remain usable without hover.
+- Runtime overrides exercised null/string/absent history, zero baseline, equal amounts, and zero current (−100%). Valid current amounts/other charts remain; explanations distinguish history quality and zero. Data-endpoint 500 hides invitation; retry restores it. Existing unit regressions preserve essential-contract failures.
+- Reduced-motion emulation: skeleton animation none, focus/instant scroll and ready result preserved. Footer remains hidden; API source validation untouched. All route overrides, preview roots and instrumentation removed by unroute/reload.
+
+Final documentation review corrected a stale decision-section link; re-review returned no unresolved findings.
+
+No actual screen-reader speech, physical mobile keyboard, or other browser engines verified. These are verification limits, not claimed passes. No build, persistent browser harness, final submission screenshot, journal or Git mutations.

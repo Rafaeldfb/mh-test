@@ -1,6 +1,6 @@
 # Task 02 implementation plan
 
-Status: Not started; coordinator planning review completed. Preparing this plan does not authorize implementation or Git operations. The [task acceptance](README.md#observable-acceptance) and [confirmed policies](decision-brief.md#confirmed-calculation-and-historical-data-policy) are settled; technical defaults below make later execution concrete.
+Status: Complete; all three deliveries implemented, validated and clean-reviewed. Preparing this plan does not authorize implementation or Git operations. The [task acceptance](README.md#observable-acceptance) and [confirmed policies](decision-brief.md#confirmed-calculation-and-historical-data-policy) are settled; technical defaults below make later execution concrete.
 
 Coordinator review verified sequence, dependencies, execution context and decisions, including the Recharts visual-orientation/layout distinction and precedence of the selected defaults. No code or tests were executed during planning review.
 
@@ -10,9 +10,9 @@ Task 01 already supplies validated responses, pure chart transformations, three 
 
 | Order | Delivery | Dependencies | Reviewable output | Status |
 | --- | --- | --- | --- | --- |
-| 01 | [History and comparison data](deliverables/01-comparison-data.md) | Current parser/types, fixtures, unit tests | Safe historical classification, pure channel comparisons and percentage formatter, with unit evidence | Not started |
-| 02 | [Grouped-bar comparison card](deliverables/02-comparison-card.md) | 01's comparison contract | Responsive, accessible card ready for integration; no public invitation yet | Not started |
-| 03 | [Offer, activation and reset](deliverables/03-comparison-flow.md) | 01 and 02; existing success workspace | Complete invitation → skeleton → grouped bars, cleanup and Task 02 acceptance evidence | Not started |
+| 01 | [History and comparison data](deliverables/01-comparison-data.md) | Current parser/types, fixtures, unit tests | Safe historical classification, pure channel comparisons and percentage formatter, with unit evidence | Complete |
+| 02 | [Grouped-bar comparison card](deliverables/02-comparison-card.md) | 01's comparison contract | Responsive, accessible card ready for integration; no public invitation yet | Complete |
+| 03 | [Offer, activation and reset](deliverables/03-comparison-flow.md) | 01 and 02; existing success workspace | Complete invitation → skeleton → grouped bars, cleanup and Task 02 acceptance evidence | Complete |
 
 These slices are independently reviewable, not dependency-free. 02's component is intentionally not a complete user flow; 03 mounts it in the actual workspace. No separate administrative verification delivery is needed.
 

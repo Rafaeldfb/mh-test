@@ -62,7 +62,7 @@ The endpoints implement these behaviors:
 - `/api/data` returns the same period and contribution rows after 400ms.
 - A `fail=1` query parameter returns HTTP 500 after 400ms. For example: `/api/agent?q=test&fail=1` or `/api/data?fail=1`.
 
-Annual investment variation remains in Task 02. Task 01 now renders the supplied panel with loading/error/retry; see its [delivery evidence](../tasks/01-render-dashboard/README.md#review-and-validation-results).
+`InvestmentComparisonFlow` adds the Task 02 local offer/reveal after the supplied charts. Pure `investment-comparison.ts` classifies unknown history and selects channel totals; `InvestmentComparison` renders grouped bars and exact values. Its local frame cleanup and success-only mounting reset comparison on each query. Task 01 now renders the supplied panel with loading/error/retry; see its [delivery evidence](../tasks/01-render-dashboard/README.md#review-and-validation-results).
 
 ## Supplied contracts and adopted handling
 
@@ -70,4 +70,4 @@ The agent fixture specifies ROI by channel (bar), investment by vehicle (bar), a
 
 Data rows mix channel totals (`vehicle: null`) with vehicle details; summing both levels would double-count values. TikTok has no prior-year baseline. Also, channel-total investment sums to R$3.7m, while the agent summary names Google Search as the highest-return channel and TV as the largest investment. These are fixture facts, not implemented UI calculations.
 
-Channel charts select total rows and vehicle charts select detail rows, never both. ROI uses supplied contribution/investment and is unavailable for nonpositive/non-finite investment or non-finite results. Zero sales remains zero. Transport rejects non-finite numeric amounts. Pie shares require nonnegative contributions with a positive finite total; otherwise values remain available in the exact-value table. Prior-year baseline handling remains Task 02 scope.
+Channel charts select total rows and vehicle charts select detail rows, never both. ROI uses supplied contribution/investment and is unavailable for nonpositive/non-finite investment or non-finite results. Zero sales remains zero. Transport rejects non-finite numeric amounts. Pie shares require nonnegative contributions with a positive finite total; otherwise values remain available in the exact-value table. Baseline remains unknown at decoding; Task 02 classifies it as positive, zero, missing or invalid. Only the affected annual comparison degrades; current contracts/integrity remain unchanged.

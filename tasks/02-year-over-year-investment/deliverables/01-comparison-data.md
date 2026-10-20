@@ -1,6 +1,6 @@
 # 01 — Historical state and comparison data
 
-Status: Not started. Execute only after implementation authorization; follow the [plan handoff/review loop](../plan.md#execution-review-and-evidence).
+Status: Complete; implemented and reviewed. Follow the [plan handoff/review loop](../plan.md#execution-review-and-evidence).
 
 ## Goal, inputs and minimum reading
 
@@ -27,4 +27,10 @@ Run focused cases then the plan's handoff checks and clean subagent review. The 
 
 ## Execution and review evidence
 
-Not executed. Record changed paths, exported contract/units, commands/results, measured gates, findings/dispositions and clean re-review here. Update task/index status only from actual evidence.
+Implemented `src/investment-comparison.ts`: `classifyHistory`, `compareInvestments`, `InvestmentComparison`, `HistoricalInvestment`, and `InvestmentChange`. History distinguishes positive/zero/missing/invalid; change is an available fraction or missing/invalid/zero/overflow. Valid amounts survive overflow. Parser/types preserve unknown history; `formatInvestmentChange` formats fractions with two signed pt-BR decimals. No UI or current-data integrity changes.
+
+Validation: typecheck, lint, full Vitest suite pass (41 tests / 7 files); focused new cases pass (13). Fixture arithmetic, immutable total selection, no detail fallback, local degradation, zero/negative/missing/invalid/non-finite history, overflow, formatting and current-field rejection covered. Existing integrity/period/question regressions remain green.
+
+Independent reviewer: gpt-6.1-sol, high; no unresolved findings, independently repeated checks. ESLint measurements (nonblank/noncomment): largest changed file 77 lines, largest function 43 lines (test describe callback), highest classic complexity 6 (classifier). Soft targets exceeded only for cohesive classifier validation and grouped test registration; both below maxima. No build. Browser verification belongs to later UI deliveries.
+
+Final audit follow-up: nonzero fractions that round to zero retain direction (+0,00% / −0,00%), while actual 0/−0 remain 0,00%. Added regression; gpt-6.1-sol high clean re-review independently passed typecheck/lint and 44 tests / 8 files. Updated measured sizes: format 21 code lines, comparison tests 59, largest callback 43, maximum complexity 2 in those two files. No unresolved findings.

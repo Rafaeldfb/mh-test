@@ -13,3 +13,11 @@ export const formatShare = (value: number, total: number) => percent.format(valu
 export function formatDate(value: string) {
   return new Intl.DateTimeFormat("pt-BR", { timeZone: "UTC" }).format(new Date(value));
 }
+
+const investmentChange = new Intl.NumberFormat("pt-BR", {
+  style: "percent", minimumFractionDigits: 2, maximumFractionDigits: 2, signDisplay: "always",
+});
+/** Receives a fraction: 0.25 means +25,00%. */
+const unchangedInvestment = investmentChange.format(0).slice(1);
+export const formatInvestmentChange = (fraction: number) => fraction === 0
+  ? unchangedInvestment : investmentChange.format(fraction);

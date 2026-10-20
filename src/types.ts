@@ -35,8 +35,8 @@ export type ContributionRow = {
   investment: number;
   /** vendas atribuídas ao canal pelo modelo, em reais */
   contribution: number;
-  /** investimento no mesmo período do ano anterior, em reais */
-  baseline: number | null;
+  /** Histórico recebido; classificar antes de calcular a comparação anual. */
+  baseline: unknown;
 };
 
 export type DataResponse = {

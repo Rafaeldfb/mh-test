@@ -60,6 +60,23 @@ h2 { overflow-wrap: anywhere; margin: 0 0 16px; font-size: 20px; font-weight: 65
 .chart-plot { min-width: 0; width: 100%; font-size: 12px; }
 .pie-plot { height: 230px; }
 .chart-note { font-size: 12px; color: #62645c; }
+.comparison-card { margin-top: 24px; }
+.comparison-offer { display: flex; align-items: center; gap: 24px; margin-top: 24px; padding: 20px 24px; border: 1px solid #d8dfd5; border-radius: 8px; background: #edf1e9; }
+.comparison-offer p { margin: 0; }
+.comparison-offer .eyebrow { margin-bottom: 4px; }
+.comparison-offer button { flex-shrink: 0; }
+.comparison-card h2 { scroll-margin-top: 24px; }
+.comparison-skeleton { height: 340px; }
+.comparison-plot { width: 100%; min-width: 0; }
+.comparison-legend { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 0; list-style: none; font-size: 12px; }
+.comparison-legend li { display: flex; align-items: center; gap: 8px; }
+.current-dot { background: #365f4b; }
+.prior-dot { background: #79739a; }
+.comparison-values { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; list-style: none; padding: 0; }
+.comparison-values li { border-top: 1px solid #e9eae4; padding-top: 12px; min-width: 0; overflow-wrap: anywhere; }
+.comparison-values h3 { margin: 0; font-size: 14px; }
+.comparison-values h3 span { display: block; margin-top: 4px; font-size: 13px; font-weight: 500; }
+.comparison-values p { font-size: 12px; margin-bottom: 0; font-variant-numeric: tabular-nums; }
 .pie-legend { list-style: none; padding: 0; margin: 8px 0 20px; }
 .pie-legend li { display: flex; align-items: center; gap: 8px; margin: 10px 0; font-size: 13px; }
 .pie-legend strong { margin-left: auto; font-variant-numeric: tabular-nums; }
@@ -73,4 +90,7 @@ td { text-align: right; font-variant-numeric: tabular-nums; }
 @media (max-width: 720px) {
   .chart-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .chart-card { padding: 16px; }
+  .comparison-values { grid-template-columns: minmax(0, 1fr); }
+  .comparison-skeleton { height: 500px; }
+  .comparison-offer { flex-direction: column; align-items: stretch; padding: 16px; gap: 16px; }
 }

@@ -1,4 +1,5 @@
 import { DashboardCharts } from "./DashboardCharts";
+import { InvestmentComparisonFlow } from "./InvestmentComparisonFlow";
 import { formatDate } from "./format";
 import type { DashboardResponse } from "./api";
 import type { DashboardState } from "./useDashboard";
@@ -62,6 +63,7 @@ export function DashboardWorkspace({ state, retry }: { state: DashboardState; re
     <section aria-label="Resultado da análise">
       <DashboardMetadata response={state.response} />
       <DashboardCharts charts={state.response.agent.charts} rows={state.response.data.rows} />
+      <InvestmentComparisonFlow rows={state.response.data.rows} period={state.response.data.period} />
     </section>
   );
 }

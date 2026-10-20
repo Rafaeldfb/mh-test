@@ -1,6 +1,6 @@
 # 02 — Grouped-bar comparison card
 
-Status: Not started. Execute only after implementation authorization; follow the [plan handoff/review loop](../plan.md#execution-review-and-evidence).
+Status: Complete; implemented and clean-reviewed. Follow the [plan handoff/review loop](../plan.md#execution-review-and-evidence).
 
 ## Goal, dependencies and minimum reading
 
@@ -30,4 +30,8 @@ Out of scope: offer/action state, scroll/focus scheduling, new endpoint, ChartPo
 
 ## Execution and review evidence
 
-Not executed. Record component inputs/states, paths, unit/check results, measured gates, manual preview method/limits, findings/dispositions and clean re-review. Hand off the stable destination and card interface to 03.
+Implemented `InvestmentComparison.tsx`, `comparison-presentation.ts` and styles. Props: points, period, preparing, optional headingRef. Stable focus destination: `investment-comparison-heading` (tabIndex -1), present in skeleton and ready states. Pure date labels include prior-year dates with February 29 clamped to February 28; two unit cases cover this rule. Chart data preserves null historical bars and known zero; all exact amounts, signed changes and unavailable explanations remain in a visible list.
+
+Typecheck/lint/full suite pass (43 tests / 8 files), independently repeated by gpt-6.1-sol high reviewer. Temporary browser-only mount with loaded fixture inspected 1440/768/720/390/320px: correct upright/sideways geometry, five current/four historical bars, percentages and no overflow. Manual inspection found long tooltip labels overflowing mobile; bounded wrapping fixed it and reviewer re-review returned no unresolved findings. Preview removed by reload; no persistent harness. Public flow/cleanup/composer verification belongs to 03.
+
+Measured gates: component 93 code lines; largest function 45 lines, classic complexity 8 (responsive chart JSX). Cohesive responsive rendering and exhaustive unavailable labels exceed soft targets but satisfy maxima. CSS 91 nonblank lines at review. No build or Git changes.
